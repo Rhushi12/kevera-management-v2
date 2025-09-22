@@ -213,302 +213,473 @@
       </div>
       
       <!-- Table Container with Density Support -->
-      <div class="table-container" id="table-wrapper">
-        <table class="kevera-table table-auto">
-          <thead class="kevera-table__header sticky top-0 bg-white dark:bg-gray-800 z-10">
+      <div class="relative overflow-x-auto overflow-y-visible max-w-full" id="table-wrapper">
+        <!-- Desktop Table View -->
+        <div class="hidden lg:block">
+          <table class="kevera-table table-fixed w-full align-middle">
+            <colgroup>
+              <col class="w-28" /> <!-- LOT ID -->
+              <col class="w-[30%]" /> <!-- STYLE/TEMPLATE -->
+              <col class="w-24" /> <!-- SIZE -->
+              <col class="w-36" /> <!-- CURRENT STEP -->
+              <col class="w-64 lg:w-56" /> <!-- PROGRESS -->
+              <col class="w-44" /> <!-- LAST UPDATE -->
+              <col class="w-48" /> <!-- ASSIGNED -->
+            </colgroup>
+          <thead class="kevera-table__header bg-white dark:bg-gray-800 sticky top-0 z-10">
             <tr>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider min-w-[120px]">
-                <div class="flex items-center gap-3">
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <div class="flex items-center gap-3 minw0">
                   <input type="checkbox" class="kevera-checkbox" id="select-all">
-                  <span>Lot ID</span>
+                  <span class="whitespace-nowrap">Lot ID</span>
                   <span class="material-symbols-outlined text-gray-400 cursor-pointer text-sm">unfold_more</span>
                 </div>
               </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Style/Template</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider min-w-[80px]">Size</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider min-w-[100px]">Current Step</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider min-w-[180px]">Progress</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap">Last Update</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Assigned</th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-12"></th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="ellipsis block minw0">Style/Template</span>
+              </th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="whitespace-nowrap">Size</span>
+              </th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="whitespace-nowrap">Current Step</span>
+              </th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="ellipsis block minw0">Progress</span>
+              </th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="whitespace-nowrap">Last Update</span>
+              </th>
+              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="ellipsis block minw0">Assigned</span>
+              </th>
             </tr>
           </thead>
           
           <!-- Step Group: Sewing -->
           <tbody>
             <tr class="bg-gray-50 dark:bg-gray-700/50 sticky top-10 z-5">
-              <td colspan="8" class="px-3 py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">
-                SEWING (1)
+              <td colspan="7" class="px-3 py-2 border-b border-gray-200 dark:border-gray-600 overflow-hidden">
+                <span class="ellipsis block minw0 text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">SEWING (1)</span>
               </td>
             </tr>
             <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
+              <td class="px-3 py-2 align-middle">
                 <div class="flex items-center gap-3">
                   <input type="checkbox" class="kevera-checkbox">
-                  <span class="font-semibold text-gray-900 dark:text-white">LOT-001</span>
+                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-001">LOT-001</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">A</div>
-                  <span>Classic Polo - Style A</span>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">A</div>
+                  <div class="minw0 max-w-[300px] ellipsis" title="Classic Polo - Style A">Classic Polo - Style A</div>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Medium</span>
+              <td class="px-3 py-2 text-center whitespace-nowrap">
+                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Sewing</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="kevera-badge kevera-badge--success whitespace-nowrap">Sewing</span>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="kevera-progress kevera-progress--sm">
-                    <div class="kevera-progress__bar" style="width: 50%"></div>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
+                    <div class="h-2 bg-primary rounded-full" style="width: 50%"></div>
                   </div>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">50%</span>
+                  <span class="text-sm text-muted whitespace-nowrap">50/100</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">50/100</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 15, 2024</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Jan 15, 2024</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">O1</div>
-                  <span class="text-sm">Operator 1</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
-                    <span class="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-red-600" title="Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+              <td class="px-3 py-2 align-middle relative">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O1</div>
+                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 1">Operator 1</span>
+                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+                      <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                  </div>
                 </div>
               </td>
             </tr>
             <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
+              <td class="px-3 py-2 align-middle">
                 <div class="flex items-center gap-3">
                   <input type="checkbox" class="kevera-checkbox">
-                  <span class="font-semibold text-gray-900 dark:text-white">LOT-002</span>
+                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-002">LOT-002</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">B</div>
-                  <span>Business Shirt - Style B</span>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">B</div>
+                  <div class="minw0 max-w-[300px] ellipsis" title="Business Shirt - Style B">Business Shirt - Style B</div>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Large</span>
+              <td class="px-3 py-2 text-center whitespace-nowrap">
+                <span class="size-badge" data-size="L" aria-label="Size Large" title="Size Large">L</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--primary">Cutting</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="kevera-badge kevera-badge--primary whitespace-nowrap">Cutting</span>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="kevera-progress kevera-progress--sm">
-                    <div class="kevera-progress__bar" style="width: 100%"></div>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
+                    <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
                   </div>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+                  <span class="text-sm text-muted whitespace-nowrap">100/50</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">100/50</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 14, 2024</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Jan 14, 2024</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">S2</div>
-                  <span class="text-sm">Supervisor 2</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
-                    <span class="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-red-600" title="Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+              <td class="px-3 py-2 align-middle relative">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S2</div>
+                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Supervisor 2">Supervisor 2</span>
+                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+                      <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                  </div>
                 </div>
               </td>
             </tr>
             <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
+              <td class="px-3 py-2 align-middle">
                 <div class="flex items-center gap-3">
                   <input type="checkbox" class="kevera-checkbox">
-                  <span class="font-semibold text-gray-900 dark:text-white">LOT-003</span>
+                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-003">LOT-003</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">C</div>
-                  <span>Casual Tee - Style C</span>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">C</div>
+                  <div class="minw0 max-w-[300px] ellipsis" title="Casual Tee - Style C">Casual Tee - Style C</div>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Small</span>
+              <td class="px-3 py-2 text-center whitespace-nowrap">
+                <span class="size-badge" data-size="S" aria-label="Size Small" title="Size Small">S</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--warning">Intake</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="kevera-badge kevera-badge--warning whitespace-nowrap">Intake</span>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="kevera-progress kevera-progress--sm">
-                    <div class="kevera-progress__bar" style="width: 0%"></div>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
+                    <div class="h-2 bg-primary rounded-full" style="width: 0%"></div>
                   </div>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">0%</span>
+                  <span class="text-sm text-muted whitespace-nowrap">0/150</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">0/150</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 13, 2024</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Jan 13, 2024</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold">O3</div>
-                  <span class="text-sm">Operator 3</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
-                    <span class="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-red-600" title="Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+              <td class="px-3 py-2 align-middle relative">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O3</div>
+                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 3">Operator 3</span>
+                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+                      <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                  </div>
                 </div>
               </td>
             </tr>
             <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
+              <td class="px-3 py-2 align-middle">
                 <div class="flex items-center gap-3">
                   <input type="checkbox" class="kevera-checkbox">
-                  <span class="font-semibold text-gray-900 dark:text-white">LOT-004</span>
+                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-004">LOT-004</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">D</div>
-                  <span>Premium Dress - Style D</span>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">D</div>
+                  <div class="minw0 max-w-[300px] ellipsis" title="Premium Dress - Style D">Premium Dress - Style D</div>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">X-Large</span>
+              <td class="px-3 py-2 text-center whitespace-nowrap">
+                <span class="size-badge" data-size="XL" aria-label="Size Extra Large" title="Size Extra Large">XL</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--info">Ironing</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="kevera-badge kevera-badge--info whitespace-nowrap">Ironing</span>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="kevera-progress kevera-progress--sm">
-                    <div class="kevera-progress__bar" style="width: 75%"></div>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
+                    <div class="h-2 bg-primary rounded-full" style="width: 75%"></div>
                   </div>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">75%</span>
+                  <span class="text-sm text-muted whitespace-nowrap">150/200</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">150/200</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 12, 2024</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Jan 12, 2024</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">S4</div>
-                  <span class="text-sm">Supervisor 4</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
-                    <span class="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-red-600" title="Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+              <td class="px-3 py-2 align-middle relative">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S4</div>
+                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Supervisor 4">Supervisor 4</span>
+                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+                      <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                  </div>
                 </div>
               </td>
             </tr>
             <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
+              <td class="px-3 py-2 align-middle">
                 <div class="flex items-center gap-3">
                   <input type="checkbox" class="kevera-checkbox">
-                  <span class="font-semibold text-gray-900 dark:text-white">LOT-005</span>
+                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-005">LOT-005</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">E</div>
-                  <span>Sport Jacket - Style E</span>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">E</div>
+                  <div class="minw0 max-w-[300px] ellipsis" title="Sport Jacket - Style E">Sport Jacket - Style E</div>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Medium</span>
+              <td class="px-3 py-2 text-center whitespace-nowrap">
+                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--danger">Packaging</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="kevera-badge kevera-badge--danger whitespace-nowrap">Packaging</span>
               </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="kevera-progress kevera-progress--sm">
-                    <div class="kevera-progress__bar" style="width: 100%"></div>
+              <td class="px-3 py-2 align-middle">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
+                    <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
                   </div>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+                  <span class="text-sm text-muted whitespace-nowrap">200/100</span>
                 </div>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">200/100</span>
+              <td class="px-3 py-2 align-middle">
+                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 11, 2024</span>
               </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Jan 11, 2024</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-bold">O5</div>
-                  <span class="text-sm">Operator 5</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
-                    <span class="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-red-600" title="Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+              <td class="px-3 py-2 align-middle relative">
+                <div class="flex items-center gap-2 minw0">
+                  <div class="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O5</div>
+                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 5">Operator 5</span>
+                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+                      <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                  </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+      
+      <!-- Mobile Card View -->
+      <div class="lg:hidden space-y-4">
+        <!-- Mobile Card for LOT-001 -->
+        <div class="kevera-card p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3 minw0">
+              <input type="checkbox" class="kevera-checkbox">
+              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-001">LOT-001</span>
+            </div>
+            <span class="kevera-badge kevera-badge--success whitespace-nowrap">Sewing</span>
+          </div>
+          <div class="flex items-center gap-2 mb-3 minw0">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">A</div>
+            <div class="minw0">
+              <div class="ellipsis font-medium" title="Classic Polo - Style A">Classic Polo - Style A</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-2 bg-primary rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span class="whitespace-nowrap">50/100</span>
+              <span class="whitespace-nowrap">Jan 15, 2024</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 minw0">
+              <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O1</div>
+              <span class="text-sm ellipsis" title="Operator 1">Operator 1</span>
+            </div>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Card for LOT-002 -->
+        <div class="kevera-card p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3 minw0">
+              <input type="checkbox" class="kevera-checkbox">
+              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-002">LOT-002</span>
+            </div>
+            <span class="kevera-badge kevera-badge--primary whitespace-nowrap">Cutting</span>
+          </div>
+          <div class="flex items-center gap-2 mb-3 minw0">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">B</div>
+            <div class="minw0">
+              <div class="ellipsis font-medium" title="Business Shirt - Style B">Business Shirt - Style B</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="size-badge" data-size="L" aria-label="Size Large" title="Size Large">L</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span class="whitespace-nowrap">100/50</span>
+              <span class="whitespace-nowrap">Jan 14, 2024</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 minw0">
+              <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S2</div>
+              <span class="text-sm ellipsis" title="Supervisor 2">Supervisor 2</span>
+            </div>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Card for LOT-003 -->
+        <div class="kevera-card p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3 minw0">
+              <input type="checkbox" class="kevera-checkbox">
+              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-003">LOT-003</span>
+            </div>
+            <span class="kevera-badge kevera-badge--warning whitespace-nowrap">Intake</span>
+          </div>
+          <div class="flex items-center gap-2 mb-3 minw0">
+            <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">C</div>
+            <div class="minw0">
+              <div class="ellipsis font-medium" title="Casual Tee - Style C">Casual Tee - Style C</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="size-badge" data-size="S" aria-label="Size Small" title="Size Small">S</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-2 bg-primary rounded-full" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span class="whitespace-nowrap">0/150</span>
+              <span class="whitespace-nowrap">Jan 13, 2024</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 minw0">
+              <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O3</div>
+              <span class="text-sm ellipsis" title="Operator 3">Operator 3</span>
+            </div>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Card for LOT-004 -->
+        <div class="kevera-card p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3 minw0">
+              <input type="checkbox" class="kevera-checkbox">
+              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-004">LOT-004</span>
+            </div>
+            <span class="kevera-badge kevera-badge--info whitespace-nowrap">Ironing</span>
+          </div>
+          <div class="flex items-center gap-2 mb-3 minw0">
+            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">D</div>
+            <div class="minw0">
+              <div class="ellipsis font-medium" title="Premium Dress - Style D">Premium Dress - Style D</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="size-badge" data-size="XL" aria-label="Size Extra Large" title="Size Extra Large">XL</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-2 bg-primary rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span class="whitespace-nowrap">150/200</span>
+              <span class="whitespace-nowrap">Jan 12, 2024</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 minw0">
+              <div class="w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S4</div>
+              <span class="text-sm ellipsis" title="Supervisor 4">Supervisor 4</span>
+            </div>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Card for LOT-005 -->
+        <div class="kevera-card p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3 minw0">
+              <input type="checkbox" class="kevera-checkbox">
+              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-005">LOT-005</span>
+            </div>
+            <span class="kevera-badge kevera-badge--danger whitespace-nowrap">Packaging</span>
+          </div>
+          <div class="flex items-center gap-2 mb-3 minw0">
+            <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">E</div>
+            <div class="minw0">
+              <div class="ellipsis font-medium" title="Sport Jacket - Style E">Sport Jacket - Style E</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span class="whitespace-nowrap">200/100</span>
+              <span class="whitespace-nowrap">Jan 11, 2024</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 minw0">
+              <div class="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O5</div>
+              <span class="text-sm ellipsis" title="Operator 5">Operator 5</span>
+            </div>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
       
       <!-- Table Footer -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">

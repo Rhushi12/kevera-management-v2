@@ -211,6 +211,50 @@
       /* Ensure main content doesn't overlap with mobile menu button */
       main {
         padding-top: 0;
+        width: 100%;
+        min-width: 0;
+      }
+    }
+    
+    /* Extra responsive adjustments for very small screens */
+    @media (max-width: 480px) {
+      /* Make content more compact on very small screens */
+      .p-6 {
+        padding: 1rem !important;
+      }
+      
+      .p-4 {
+        padding: 0.75rem !important;
+      }
+      
+      .text-3xl {
+        font-size: 1.5rem !important;
+      }
+      
+      .text-2xl {
+        font-size: 1.25rem !important;
+      }
+      
+      .text-xl {
+        font-size: 1.125rem !important;
+      }
+      
+      /* Make sidebar even more compact on tiny screens */
+      aside {
+        width: min(260px, 90vw) !important;
+      }
+      
+      /* Adjust grid layouts for mobile */
+      .grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+      }
+      
+      .md\:grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+      }
+      
+      .lg\:grid-cols-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
     }
     
@@ -348,10 +392,6 @@
 <body class="bg-background-light dark:bg-background-dark font-body">
   <!-- Main application container with enhanced layout -->
   <div class="flex h-screen w-full bg-gradient-to-br from-background-light to-gray-50 dark:from-background-dark dark:to-gray-900 transition-colors duration-300">
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-200">
-      <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">menu</span>
-    </button>
     
     <!-- Sidebar - will be populated by SharedLayout.html -->
     <div id="sidebar-container" class="relative z-40">

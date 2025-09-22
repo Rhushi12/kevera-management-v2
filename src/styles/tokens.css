@@ -71,6 +71,68 @@
   --breakpoint-2xl: 1536px;
 }
 
+/* Text truncation and wrapping utilities */
+.minw0 {
+  min-width: 0;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Size badge styles */
+.size-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--bg-light, #f6f8f8);
+  color: #0f766e;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+}
+
+.density-comfortable .size-badge {
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+}
+
+.density-compact .size-badge {
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+}
+
+/* Default size for when no density class is present */
+.size-badge {
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+}
+
+/* Optional size variations */
+.size-badge[data-size="XL"],
+.size-badge[data-size="XXL"] {
+  background: color-mix(in srgb, var(--bg-light, #f6f8f8) 85%, var(--color-primary));
+}
+
 /* Dark mode color overrides */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -242,5 +304,77 @@ aside.mobile-open {
   .kevera-button-secondary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Extra small screens (preview windows, very small devices) */
+@media (max-width: 480px) {
+  :root {
+    --space-6: 1rem; /* Reduce spacing on small screens */
+    --space-8: 1.25rem;
+  }
+  
+  .kevera-card {
+    padding: var(--space-3);
+    margin: var(--space-2);
+  }
+  
+  /* Compact text sizes */
+  h1, .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.3;
+  }
+  
+  h2, .text-2xl {
+    font-size: 1.25rem !important;
+    line-height: 1.3;
+  }
+  
+  h3, .text-xl {
+    font-size: 1.125rem !important;
+    line-height: 1.3;
+  }
+  
+  /* Ensure content doesn't overflow */
+  .max-w-7xl {
+    max-width: 100% !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Make grid more compact */
+  .grid {
+    gap: 0.5rem !important;
+  }
+  
+  /* Adjust input widths for small screens */
+  .w-64, .w-80 {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
+
+/* Tiny screens and preview windows */
+@media (max-width: 360px) {
+  .p-6 {
+    padding: 0.75rem !important;
+  }
+  
+  .p-4 {
+    padding: 0.5rem !important;
+  }
+  
+  .gap-4 {
+    gap: 0.5rem !important;
+  }
+  
+  .gap-3 {
+    gap: 0.25rem !important;
+  }
+  
+  /* Stack flex items on tiny screens */
+  .flex-wrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
   }
 }
