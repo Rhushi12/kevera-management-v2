@@ -1,0 +1,283 @@
+<!-- Enhanced Sewing (Step 3) Page Content -->
+<div class="p-6 space-y-8 max-w-7xl mx-auto">
+  <!-- Header Section -->
+  <section class="mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+          <span class="material-symbols-outlined mr-3 text-green-600">styler</span>
+          Sewing Operations
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">Manage sewing assignments and track production progress.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">assignment</span>
+          Assign Bundle
+        </button>
+        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">qr_code_scanner</span>
+          Scan Bundle
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Main Content -->
+    <div class="lg:col-span-2 space-y-6">
+      <!-- Bundle Assignment -->
+      <div class="kevera-card">
+        <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Bundle Assignment</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label class="kevera-label" for="bundle-id">Bundle ID <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input class="kevera-input pr-12" id="bundle-id" placeholder="Scan or Enter Bundle ID" required type="text" value="B-001"/>
+              <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary">
+                <span class="material-symbols-outlined">qr_code_scanner</span>
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="worker">Assigned Worker <span class="text-red-500">*</span></label>
+            <select class="kevera-select" id="worker" required>
+              <option>Select Worker</option>
+              <option selected>Alice Chen - Advanced</option>
+              <option>Bob Williams - Intermediate</option>
+              <option>Carol Davis - Expert</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="station">Sewing Station</label>
+            <select class="kevera-select" id="station">
+              <option>Select Station</option>
+              <option selected>Station A1</option>
+              <option>Station A2</option>
+              <option>Station B1</option>
+              <option>Station B2</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="start-time">Start Time</label>
+            <input class="kevera-input" id="start-time" type="datetime-local" value="2023-10-27T14:30"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="estimated-completion">Estimated Completion</label>
+            <input class="kevera-input" id="estimated-completion" type="datetime-local" value="2023-10-27T16:30"/>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label class="kevera-label" for="special-instructions">Special Instructions</label>
+            <textarea class="kevera-textarea" id="special-instructions" placeholder="Any special sewing instructions or notes..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Worker Performance -->
+      <div class="kevera-card">
+        <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Worker Performance Today</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">8</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Bundles Completed</div>
+          </div>
+          <div class="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+            <div class="text-2xl font-bold text-green-600 dark:text-green-400">160</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Pieces Sewn</div>
+          </div>
+          <div class="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">95.2%</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Quality Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-6">
+      <!-- Bundle Details -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white flex items-center">
+          <span class="material-symbols-outlined mr-2 text-primary">info</span>
+          Bundle Details
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Bundle ID</p>
+            <p class="font-semibold text-gray-900 dark:text-white font-mono">B-001</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">From Lot</p>
+            <p class="font-semibold text-gray-900 dark:text-white font-mono">L-54321-S</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Style</p>
+            <p class="font-semibold text-gray-900 dark:text-white">Men's Classic T-Shirt</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Pieces</p>
+            <p class="font-semibold text-gray-900 dark:text-white">20</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
+            <span class="kevera-badge kevera-badge--warning">Assigned</span>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Priority</p>
+            <span class="kevera-badge kevera-badge--info">Normal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Quick Actions</h3>
+        <div class="space-y-3">
+          <button class="kevera-btn kevera-btn--primary w-full">
+            <span class="material-symbols-outlined mr-2">play_arrow</span>
+            Start Sewing
+          </button>
+          <button class="kevera-btn kevera-btn--outline w-full">
+            <span class="material-symbols-outlined mr-2">pause</span>
+            Pause Work
+          </button>
+          <button class="kevera-btn kevera-btn--ghost w-full">
+            <span class="material-symbols-outlined mr-2">check_circle</span>
+            Complete Bundle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active Jobs Table -->
+  <section>
+    <div class="kevera-card">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Active Sewing Jobs</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Monitor all active sewing assignments and progress</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+            <input class="kevera-input pl-10 pr-4 py-2 w-64 text-sm" placeholder="Search jobs..." type="text"/>
+          </div>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            <span class="material-symbols-outlined mr-1">filter_list</span>
+            Filter
+          </button>
+        </div>
+      </div>
+      
+      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+        <table class="kevera-table">
+          <thead class="kevera-table__header">
+            <tr>
+              <th class="kevera-table__header-cell">Bundle ID</th>
+              <th class="kevera-table__header-cell">Worker</th>
+              <th class="kevera-table__header-cell">Station</th>
+              <th class="kevera-table__header-cell">Progress</th>
+              <th class="kevera-table__header-cell">Start Time</th>
+              <th class="kevera-table__header-cell">Estimated Completion</th>
+              <th class="kevera-table__header-cell">Status</th>
+              <th class="kevera-table__header-cell">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="kevera-table__body">
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">B-001</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">AC</div>
+                  <span class="text-sm">Alice Chen</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">A1</td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-2">
+                  <div class="kevera-progress kevera-progress--sm">
+                    <div class="kevera-progress__bar" style="width: 60%"></div>
+                  </div>
+                  <span class="text-sm text-gray-600 dark:text-gray-400">60%</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">2:30 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">4:30 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--warning">In Progress</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Pause">
+                    <span class="material-symbols-outlined">pause</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Complete">
+                    <span class="material-symbols-outlined">check_circle</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">B-002</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">BW</div>
+                  <span class="text-sm">Bob Williams</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">A2</td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-2">
+                  <div class="kevera-progress kevera-progress--sm">
+                    <div class="kevera-progress__bar" style="width: 25%"></div>
+                  </div>
+                  <span class="text-sm text-gray-600 dark:text-gray-400">25%</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">3:00 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">5:30 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--warning">In Progress</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Pause">
+                    <span class="material-symbols-outlined">pause</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Complete">
+                    <span class="material-symbols-outlined">check_circle</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End Sewing (Step 3) Page Content -->

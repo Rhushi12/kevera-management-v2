@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kevera - Cutting &amp; Bundling</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F766E',
+                        secondary: '#F59E0B',
+                        'background-light': '#F9FAFB',
+                        'background-dark': '#1F2937',
+                        'surface-light': '#FFFFFF',
+                        'surface-dark': '#374151',
+                        'text-light': '#111827',
+                        'text-dark': '#F9FAFB',
+                        'subtle-light': '#6B7280',
+                        'subtle-dark': '#9CA3AF',
+                        'border-light': '#E5E7EB',
+                        'border-dark': '#4B5563',
+                        danger: '#DC2626',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Manrope', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: '8px',
+                        lg: '8px',
+                        xl: '8px',
+                        full: '9999px',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sticky-bottom-bar {
+            box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 -2px 4px -2px rgb(0 0 0 / 0.1);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .drawer {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .drawer.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 flex-shrink-0 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark hidden md:block">
+<div class="p-6">
+<h1 class="text-2xl font-bold font-display text-text-light dark:text-text-dark">Kevera</h1>
+</div>
+<nav class="mt-6">
+<a class="flex items-center gap-3 px-6 py-3 text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">move_to_inbox</span>
+<span>Intake</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-primary bg-primary/10 dark:bg-primary/20 font-semibold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">factory</span>
+<span>Production</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span>Reports</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 overflow-x-hidden">
+<div class="sticky top-0 z-20 flex items-center justify-between p-4 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark md:p-6">
+<div>
+<div class="text-sm text-subtle-light dark:text-subtle-dark">Production / Cutting</div>
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Cutting &amp; Bundling (Step 2)</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="md:hidden p-2 rounded-full text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<div class="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 @container">
+<div class="lg:col-span-2 flex flex-col gap-6 order-2 lg:order-1">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="lot-id">Lot ID <span class="text-danger">*</span></label>
+<div class="relative">
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-lg p-3 pr-10 focus:ring-primary focus:border-primary" id="lot-id" placeholder="Scan or Enter Lot ID" required="" type="text" value="L-54321-S"/>
+<span class="material-symbols-outlined absolute top-1/2 right-3 -translate-y-1/2 text-subtle-light dark:text-subtle-dark cursor-pointer">qr_code_scanner</span>
+</div>
+<p class="text-xs text-subtle-light dark:text-subtle-dark mt-1">This is the Lot ID from the material intake step.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="style-template">Style/Template</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-lg p-3 focus:ring-primary focus:border-primary" disabled="" id="style-template" placeholder="e.g., Men's T-Shirt" type="text" value="Men's Classic T-Shirt"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="size">Size <span class="text-danger">*</span></label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-lg p-3 focus:ring-primary focus:border-primary" id="size" required="">
+<option>Select Size</option>
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="target-yield">Target Yield</label>
+<input class="w-full bg-gray-100 dark:bg-gray-800 border border-border-light dark:border-border-dark text-subtle-light dark:text-text-dark rounded-lg p-3" disabled="" id="target-yield" type="number" value="500"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="actual-pieces">Actual Pieces <span class="text-danger">*</span></label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-lg p-3 focus:ring-primary focus:border-primary" id="actual-pieces" min="0" placeholder="e.g., 485" required="" type="number" value="485"/>
+<p class="text-xs text-danger mt-1 hidden">Actual pieces must be 0 or more.</p>
+<div class="flex gap-2 mt-2">
+<button class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full hover:bg-primary/20">Set Actual = 450</button>
+<button class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full hover:bg-primary/20">Copy Target → Actual</button>
+</div>
+</div>
+<div class="md:col-span-2">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" id="split-bundles" type="checkbox"/>
+<label class="ml-2 block text-sm text-gray-900 dark:text-gray-200" for="split-bundles">Split into sub-bundles</label>
+</div>
+</div>
+</div>
+<div class="mt-6 hidden" id="sub-bundles-section">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-text-light dark:text-text-dark">Sub-Bundles</h4>
+<button class="text-sm font-semibold text-primary hover:text-primary/90">Auto Split</button>
+</div>
+<div class="overflow-x-auto rounded-lg border border-border-light dark:border-border-dark">
+<table class="w-full text-left">
+<thead class="bg-background-light dark:bg-background-dark">
+<tr>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Sub-bundle ID</th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Size</th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Pieces</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr>
+<td class="p-3 text-sm text-text-light dark:text-text-dark font-mono">L-54321-S-1</td>
+<td class="p-3">
+<select class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary">
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+</select>
+</td>
+<td class="p-3">
+<input class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary" type="number" value="100"/>
+</td>
+</tr>
+<tr>
+<td class="p-3 text-sm text-text-light dark:text-text-dark font-mono">L-54321-S-2</td>
+<td class="p-3">
+<select class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary">
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+</select>
+</td>
+<td class="p-3">
+<input class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary" type="number" value="100"/>
+</td>
+</tr>
+<tr>
+<td class="p-3 text-sm text-text-light dark:text-text-dark font-mono">L-54321-S-3</td>
+<td class="p-3">
+<select class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary">
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+</select>
+</td>
+<td class="p-3">
+<input class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary" type="number" value="100"/>
+</td>
+</tr>
+<tr>
+<td class="p-3 text-sm text-text-light dark:text-text-dark font-mono">L-54321-S-4</td>
+<td class="p-3">
+<select class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary">
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+</select>
+</td>
+<td class="p-3">
+<input class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary" type="number" value="100"/>
+</td>
+</tr>
+<tr>
+<td class="p-3 text-sm text-text-light dark:text-text-dark font-mono">L-54321-S-5</td>
+<td class="p-3">
+<select class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary">
+<option>S</option>
+<option selected="">M</option>
+<option>L</option>
+</select>
+</td>
+<td class="p-3">
+<input class="w-full bg-background-light dark:bg-surface-dark border-border-light dark:border-border-dark rounded-lg p-2 text-sm focus:ring-primary focus:border-primary" type="number" value="85"/>
+</td>
+</tr>
+</tbody>
+<tfoot class="bg-background-light dark:bg-background-dark">
+<tr>
+<td class="p-3 text-sm font-semibold text-right text-text-light dark:text-text-dark" colspan="2">Total Pieces:</td>
+<td class="p-3 font-semibold text-text-light dark:text-text-dark">485</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<p class="text-xs text-danger mt-2">Sub-bundle total (485) must equal Actual Pieces (485) to save.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 space-y-6 order-1 lg:order-2">
+<details class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg lg:block open" open="">
+<summary class="font-bold text-lg text-text-light dark:text-text-dark cursor-pointer flex justify-between items-center">
+                            Lot Summary
+                            <span class="material-symbols-outlined lg:hidden">expand_more</span>
+</summary>
+<div class="mt-4 space-y-4">
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Lot ID</p>
+<p class="font-semibold text-text-light dark:text-text-dark font-mono">L-54321-S</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Style/Template</p>
+<p class="font-semibold text-text-light dark:text-text-dark">Men's Classic T-Shirt</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Size</p>
+<p class="font-semibold text-text-light dark:text-text-dark">M</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Target / Actual</p>
+<p class="font-semibold text-text-light dark:text-text-dark">500 / <span class="text-primary">485</span></p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Status</p>
+<p class="font-semibold text-text-light dark:text-text-dark flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span> Waiting for Bundling</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Last Update</p>
+<p class="font-semibold text-text-light dark:text-text-dark">2023-10-27 10:30 AM</p>
+</div>
+</div>
+</details>
+<div class="hidden lg:block bg-surface-light dark:bg-surface-dark p-6 rounded-lg">
+<h3 class="font-bold text-lg text-text-light dark:text-text-dark mb-4">Actions</h3>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
+                                Save Batch
+                            </button>
+<button class="w-full bg-secondary text-white font-semibold py-3 px-4 rounded-lg hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">print</span> Print Labels
+                            </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 bg-surface-light dark:bg-surface-dark p-6 rounded-lg order-3">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-4">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">Recent Cutting Batches</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtle-light dark:text-subtle-dark">search</span>
+<input class="w-full md:w-64 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-lg p-2 pl-10 focus:ring-primary focus:border-primary" placeholder="Search batches..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-border-light dark:border-border-dark">
+<tr>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Lot ID <span class="material-symbols-outlined text-base align-middle">unfold_more</span></th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Style <span class="material-symbols-outlined text-base align-middle">unfold_more</span></th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Size <span class="material-symbols-outlined text-base align-middle">unfold_more</span></th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Actual Pieces</th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Status</th>
+<th class="p-3 text-sm font-semibold text-subtle-light dark:text-subtle-dark">Last Updated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark cursor-pointer">
+<td class="p-3 text-sm text-primary font-mono">L12345-M</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">Men's Classic T-Shirt</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">M</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">450</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Completed</span></td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">2024-01-19 11:00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark cursor-pointer">
+<td class="p-3 text-sm text-primary font-mono">L67890-XL</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">Women's V-Neck</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">XL</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">250</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">In Progress</span></td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">2024-01-18 15:00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark cursor-pointer">
+<td class="p-3 text-sm text-primary font-mono">L23456-S</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">Kids Hoodie</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">S</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">300</td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Completed</span></td>
+<td class="p-3 text-sm text-subtle-light dark:text-subtle-dark">2024-01-17 10:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between mt-4">
+<span class="text-sm text-subtle-light dark:text-subtle-dark">Showing 1 to 3 of 15 results</span>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-background-light dark:hover:bg-surface-dark disabled:text-gray-400" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-background-light dark:hover:bg-surface-dark">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div class="lg:hidden sticky bottom-0 bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark p-4 flex gap-3 sticky-bottom-bar">
+<button class="flex-1 bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">Save Batch</button>
+<button class="flex-1 bg-secondary text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-secondary/90 transition-colors">
+<span class="material-symbols-outlined">print</span> Print Labels
+        </button>
+</div>
+<div class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 hidden" id="toast-success" role="alert">
+<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"></path>
+</svg>
+<span class="sr-only">Check icon</span>
+</div>
+<div class="ml-3 text-sm font-normal">Batch saved successfully.</div>
+</div>
+<div class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 hidden" id="toast-print" role="alert">
+<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
+<span class="material-symbols-outlined text-lg">print</span>
+<span class="sr-only">Print icon</span>
+</div>
+<div class="ml-3 text-sm font-normal">Labels sent to printer.</div>
+</div>
+<div class="fixed top-0 right-0 z-40 h-screen p-6 overflow-y-auto bg-surface-light dark:bg-surface-dark w-full max-w-md drawer" id="batch-drawer">
+<button class="absolute top-4 right-4 text-subtle-light dark:text-subtle-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full p-1" id="close-drawer">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-6">Batch Details</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Lot ID</p>
+<p class="font-semibold text-text-light dark:text-text-dark font-mono">L12345-M</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Style/Template</p>
+<p class="font-semibold text-text-light dark:text-text-dark">Men's Classic T-Shirt</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Size</p>
+<p class="font-semibold text-text-light dark:text-text-dark">M</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Actual Pieces</p>
+<p class="font-semibold text-text-light dark:text-text-dark">450</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Status</p>
+<p class="font-semibold text-green-600 dark:text-green-400">Completed</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Operator</p>
+<p class="font-semibold text-text-light dark:text-text-dark">Alex</p>
+</div>
+<div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Last Update</p>
+<p class="font-semibold text-text-light dark:text-text-dark">2024-01-19 11:00</p>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-black/30 z-30 hidden" id="drawer-overlay"></div>
+<script>
+        // Dummy script to simulate interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const splitCheckbox = document.getElementById('split-bundles');
+            const subBundlesSection = document.getElementById('sub-bundles-section');
+            const drawer = document.getElementById('batch-drawer');
+            const drawerOverlay = document.getElementById('drawer-overlay');
+            const closeDrawerBtn = document.getElementById('close-drawer');
+            const tableRows = document.querySelectorAll('tbody tr[class*="cursor-pointer"]');
+            splitCheckbox.addEventListener('change', function() {
+                subBundlesSection.classList.toggle('hidden', !this.checked);
+            });
+            const openDrawer = () => {
+                drawer.classList.add('open');
+                drawerOverlay.classList.remove('hidden');
+            };
+            const closeDrawer = () => {
+                drawer.classList.remove('open');
+                drawerOverlay.classList.add('hidden');
+            };
+            tableRows.forEach(row => {
+                row.addEventListener('click', openDrawer);
+            });
+            closeDrawerBtn.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
+        });
+    </script>
+
+</body></html>

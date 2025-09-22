@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0d776d",
+              "background-light": "#f6f8f8",
+              "background-dark": "#112120",
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#1B2D2C",
+              "text-primary-light": "#111817",
+              "text-primary-dark": "#E3E9E8",
+              "text-secondary-light": "#638884",
+              "text-secondary-dark": "#9AB2AF",
+              "border-light": "#E3E9E8",
+              "border-dark": "#2A3C3B",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "0.75rem", xl: "1rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b bg-surface-light dark:bg-surface-dark border-border-light dark:border-border-dark px-4 sm:px-6 h-16">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 -ml-2">
+<span class="material-symbols-outlined text-text-primary-light dark:text-text-primary-dark"> menu </span>
+</button>
+<div class="flex items-center gap-2">
+<svg class="text-primary" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.28915 4.28915C2.76408 5.81421 1.7255 7.75723 1.30474 9.87258C0.883971 11.9879 1.09992 14.1805 1.92528 16.1731C2.75064 18.1657 4.14833 19.8688 5.9416 21.067C7.73487 22.2652 9.84325 22.9048 12 22.9048C14.1567 22.9048 16.2651 22.2652 18.0584 21.067C19.8517 19.8688 21.2494 18.1657 22.0747 16.1731C22.9001 14.1805 23.116 11.9879 22.6953 9.87258C22.2745 7.75723 21.2359 5.81421 19.7108 4.28915L12 12L4.28915 4.28915Z"></path>
+</svg>
+<h1 class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Kevera</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hidden sm:block">Supervisor View</span>
+<img alt="User avatar" class="size-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmnoxABgXDq8Suzb-lOf0lYe6f8SOJDFFG-N348ahytCXdCZka46atCVNEYGhadaSiXYgD1BSZk2vK0HDtDiMAIGXaiwEplwWTD4aymNqGGSPN9KNCtLM5hel03i8rIgruHp8OqItnhyxldo4-lCTJC1DZf1eDMfBUqQmMFB40rGmPuIUoAtqCO2dmv21lebH6h8xntfqm1dec6GMaZyXc6szTwwaKaNz0MP8xmX6WoKp3p1ORBSkmJzJiw7itfGr2CUPN_eM4bA"/>
+</div>
+</header>
+<main class="flex-grow p-4 sm:p-6 lg:p-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-6">
+<h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark">Sewing (Step 3)</h2>
+<p class="mt-1 text-text-secondary-light dark:text-text-secondary-dark">Assign jobs, track progress, and manage your sewing workforce.</p>
+</div>
+<div class="mb-8">
+<div class="flex flex-wrap items-center gap-2">
+<span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Filters:</span>
+<button class="px-3 py-1.5 text-sm font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20">All</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Lot ID</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Size</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Worker</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Status</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">Create/Update Sewing Job</h3>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="lot-id">Lot ID</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="lot-id" placeholder="e.g., LT-2024-001" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="worker">Worker</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="worker">
+<option disabled="" selected="">Select a worker</option>
+<option>Maria Garcia</option>
+<option>John Smith</option>
+<option>Anika Sharma</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="machine-id">Machine ID</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="machine-id" placeholder="e.g., JUKI-DDL-8700" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="assigned-pieces">Assigned Pieces</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="assigned-pieces" placeholder="e.g., 150" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="completed-pieces">Completed Pieces</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="completed-pieces" placeholder="e.g., 75" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="start-time">Start Time</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="start-time" type="datetime-local"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="end-time">End Time</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="end-time" type="datetime-local"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="notes">Notes</label>
+<textarea class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="notes" placeholder="Add any relevant notes..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2 flex flex-col sm:flex-row gap-3 pt-4">
+<button class="w-full sm:w-auto flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity" type="submit">
+                  Assign Job
+                </button>
+<button class="w-full sm:w-auto flex-1 bg-primary/10 dark:bg-primary/20 text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors" type="button">
+                  Update Progress
+                </button>
+<button class="w-full sm:w-auto flex-1 bg-primary/10 dark:bg-primary/20 text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors" type="button">
+                  Mark Completed
+                </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

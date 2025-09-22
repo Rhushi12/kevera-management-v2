@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kevera - Sign In</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0F766E", // Deep Teal
+              "secondary": "#F59E0B", // Amber
+              "background": "#F8FAFC", // Neutral Light
+              "text-charcoal": "#1F2937",
+              "border-color": "#D1D5DB",
+            },
+            fontFamily: {
+              "sans": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "8px", 
+              "lg": "8px",
+              "xl": "8px",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-background text-text-charcoal">
+<div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-md">
+<div class="text-center mb-8">
+<svg class="mx-auto h-12 w-auto text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L12 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L18.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.648l.21-1.049a3.375 3.375 0 00-2.284-2.284l-1.05-.21a3.375 3.375 0 00-2.283 2.284l-.21 1.05a3.375 3.375 0 002.283 2.284l1.05.21a3.375 3.375 0 002.284-2.284z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h1 class="mt-4 text-3xl font-bold tracking-tight text-text-charcoal">Kevera</h1>
+</div>
+<div class="space-y-6">
+<div>
+<label class="sr-only" for="email">Email</label>
+<input class="w-full h-14 px-4 py-3 bg-white border border-border-color rounded-lg text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" id="email" name="email" placeholder="Email" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input class="w-full h-14 px-4 py-3 bg-white border border-border-color rounded-lg text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" id="password" name="password" placeholder="Password" type="password"/>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<button class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-primary hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" type="submit">
+                    Sign In
+                </button>
+<button class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" type="button">
+                    Continue
+                </button>
+</div>
+</div>
+</div>
+
+</body></html>

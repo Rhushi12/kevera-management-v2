@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kevera Manufacturing</title>
+  
+  <!-- Preconnect to external font resources -->
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  
+  <!-- Font imports - consolidated to Inter and Material Icons -->
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Manrope:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  
+  <!-- Favicon -->
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+  
+  <!-- Design Tokens CSS -->
+  <link href="src/styles/tokens.css" rel="stylesheet"/>
+  
+  <!-- UI Components CSS -->
+  <link href="src/styles/components.css" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS - Single consolidated config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0F766E",
+            accent: "#F59E0B",
+            "background-light": "#f6f8f8",
+            "background-dark": "#112120",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1a2e2c",
+            "text-primary-light": "#111827",
+            "text-primary-dark": "#f9fafb",
+            "text-secondary-light": "#6b7280",
+            "text-secondary-dark": "#9ca3af",
+            "border-light": "#e5e7eb",
+            "border-dark": "#4b5563",
+          },
+          fontFamily: {
+            display: ["Inter", "Manrope", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            full: "9999px"
+          },
+          animation: {
+            'spin': 'spin 1s linear infinite',
+            'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce': 'bounce 1s infinite',
+          }
+        },
+      },
+    };
+  </script>
+  
+  <style>
+    /* Enhanced Global Styles and Material Icons */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    /* Advanced Animation Keyframes */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    /* Enhanced Page Transitions */
+    #page-root {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .page-enter {
+      animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Enhanced Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: rgba(15, 118, 110, 0.3);
+      border-radius: 3px;
+      transition: background 0.2s ease;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 118, 110, 0.6);
+    }
+    
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    
+    /* Dark Mode Scrollbar */
+    .dark ::-webkit-scrollbar-thumb {
+      background: rgba(15, 118, 110, 0.4);
+    }
+    
+    .dark ::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 118, 110, 0.7);
+    }
+    
+    /* Enhanced Responsive Layout */
+    @media (max-width: 1024px) {
+      aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        width: 280px;
+      }
+      
+      aside.mobile-open {
+        transform: translateX(0);
+      }
+      
+      .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 40;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Ensure main content doesn't overlap with mobile menu button */
+      main {
+        padding-top: 0;
+      }
+    }
+    
+    /* Enhanced Focus and Accessibility */
+    .focus-visible:focus {
+      outline: 2px solid #0F766E;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    .focus:focus {
+      outline: 2px solid #0F766E;
+      outline-offset: 2px;
+    }
+    
+    /* Enhanced Interactive Elements */
+    .interactive-hover {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .interactive-hover:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .interactive-scale:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Enhanced Button States */
+    .btn-primary {
+      background: linear-gradient(135deg, #0F766E 0%, #059669 100%);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 8px 25px rgba(15, 118, 110, 0.3);
+      transform: translateY(-1px);
+    }
+    
+    /* Enhanced Card Animations */
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Loading States */
+    .loading-shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    .dark .loading-shimmer {
+      background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+      background-size: 200% 100%;
+    }
+    
+    /* Enhanced Print Styles */
+    @media print {
+      aside, header button, .no-print, .mobile-overlay {
+        display: none !important;
+      }
+      
+      main {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+      }
+      
+      .print-break {
+        page-break-before: always;
+      }
+    }
+    
+    /* Enhanced Status Indicators */
+    .status-indicator {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .status-indicator::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+    }
+    
+    .status-indicator.success::before {
+      background-color: #10b981;
+    }
+    
+    .status-indicator.warning::before {
+      background-color: #f59e0b;
+    }
+    
+    .status-indicator.error::before {
+      background-color: #ef4444;
+    }
+    
+    .status-indicator.info::before {
+      background-color: #3b82f6;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body">
+  <!-- Main application container with enhanced layout -->
+  <div class="flex h-screen w-full bg-gradient-to-br from-background-light to-gray-50 dark:from-background-dark dark:to-gray-900 transition-colors duration-300">
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-btn" class="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-200">
+      <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">menu</span>
+    </button>
+    
+    <!-- Sidebar - will be populated by SharedLayout.html -->
+    <div id="sidebar-container" class="relative z-40">
+      <!-- Sidebar content will be loaded here -->
+    </div>
+    
+    <!-- Main content area with enhanced styling -->
+    <main class="flex-1 flex flex-col min-w-0 relative">
+      <!-- Header - will be populated by SharedLayout.html -->
+      <div id="header-container" class="sticky top-0 z-30 backdrop-blur-sm bg-white/95 dark:bg-gray-900/95 border-b border-gray-200/50 dark:border-gray-700/50">
+        <!-- Header content will be loaded here -->
+      </div>
+      
+      <!-- Page content container with enhanced scrolling -->
+      <div class="flex-1 overflow-y-auto custom-scrollbar" id="page-root">
+        <!-- Enhanced loading state -->
+        <div class="flex items-center justify-center min-h-[60vh] p-8">
+          <div class="text-center max-w-md mx-auto">
+            <div class="relative mb-8">
+              <div class="animate-spin rounded-full h-16 w-16 border-4 border-primary/20 border-t-primary mx-auto"></div>
+              <div class="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-r-primary/40 animate-pulse mx-auto"></div>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Loading Kevera Manufacturing</h3>
+              <p class="text-gray-600 dark:text-gray-400">Preparing your manufacturing dashboard...</p>
+              <div class="flex justify-center space-x-1 mt-4">
+                <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+                <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+                <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Enhanced mobile menu overlay -->
+  <div id="mobile-overlay" class="mobile-overlay lg:hidden"></div>
+  
+  <!-- Notification container (managed by SharedLayout.js) -->
+  <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+  
+  <!-- Error boundary for unhandled errors -->
+  <div id="error-boundary" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md mx-4">
+      <div class="text-center">
+        <div class="text-red-500 text-4xl mb-4">⚠️</div>
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Something went wrong</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4" id="error-message">
+          An unexpected error occurred. Please refresh the page to continue.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button onclick="location.reload()" class="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90">
+            Reload Page
+          </button>
+          <button onclick="document.getElementById('error-boundary').classList.add('hidden')" class="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+            Dismiss
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript files -->
+  <script>
+    // Global error handler
+    window.addEventListener('error', (event) => {
+      console.error('Global error:', event.error);
+      const errorBoundary = document.getElementById('error-boundary');
+      const errorMessage = document.getElementById('error-message');
+      
+      if (errorBoundary && errorMessage) {
+        errorMessage.textContent = event.error?.message || 'An unexpected error occurred.';
+        errorBoundary.classList.remove('hidden');
+        errorBoundary.classList.add('flex');
+      }
+    });
+    
+    window.addEventListener('unhandledrejection', (event) => {
+      console.error('Unhandled promise rejection:', event.reason);
+      const errorBoundary = document.getElementById('error-boundary');
+      const errorMessage = document.getElementById('error-message');
+      
+      if (errorBoundary && errorMessage) {
+        errorMessage.textContent = event.reason?.message || 'A network or loading error occurred.';
+        errorBoundary.classList.remove('hidden');
+        errorBoundary.classList.add('flex');
+      }
+    });
+
+    // Initialize layout loading
+    async function initializeApp() {
+      try {
+        // Load shared layout components
+        await loadSharedLayout();
+        
+        // Initialize router (this will be loaded next)
+        // The router will handle initial route navigation
+        console.log('Kevera Manufacturing app initialized successfully');
+        
+      } catch (error) {
+        console.error('Failed to initialize app:', error);
+        showError('Failed to load application. Please refresh the page.');
+      }
+    }
+    
+    async function loadSharedLayout() {
+      try {
+        // Load sidebar
+        const sidebarResponse = await fetch('src/layouts/SharedLayout.html');
+        if (!sidebarResponse.ok) throw new Error('Failed to load sidebar');
+        const sidebarHTML = await sidebarResponse.text();
+        
+        // Parse and extract sidebar and header
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(sidebarHTML, 'text/html');
+        
+        const sidebar = doc.querySelector('aside');
+        const header = doc.querySelector('header');
+        
+        if (sidebar) {
+          document.getElementById('sidebar-container').appendChild(sidebar);
+        }
+        
+        if (header) {
+          document.getElementById('header-container').appendChild(header);
+        }
+        
+      } catch (error) {
+        console.error('Error loading shared layout:', error);
+        throw error;
+      }
+    }
+    
+    function showError(message) {
+      const pageRoot = document.getElementById('page-root');
+      if (pageRoot) {
+        pageRoot.innerHTML = `
+          <div class="flex items-center justify-center min-h-[400px]">
+            <div class="text-center">
+              <div class="text-red-500 text-4xl mb-4">⚠️</div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">${message}</p>
+              <button onclick="location.reload()" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">
+                Reload Page
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    }
+    
+    // Start app initialization
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+      initializeApp();
+    }
+  </script>
+  
+  <!-- Load SharedLayout JavaScript -->
+  <script src="src/layouts/SharedLayout.js"></script>
+  
+  <!-- Load Router JavaScript -->
+  <script src="src/router.js"></script>
+</body>
+</html>

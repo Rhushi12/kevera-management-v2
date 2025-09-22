@@ -1,0 +1,621 @@
+/* 
+ * Kevera Manufacturing - Advanced UI Components Library
+ * Comprehensive component styles for consistent UI/UX
+ */
+
+/* ============================
+   GLOBAL BACKGROUND FIXES
+   ============================ */
+
+/* Ensure all containers have proper backgrounds */
+body {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+/* Main content areas */
+main {
+  @apply bg-white dark:bg-gray-900;
+}
+
+/* Override any unwanted dark backgrounds */
+.bg-dark-override {
+  @apply !bg-white dark:!bg-gray-800;
+}
+
+/* Fix any teal/green background issues */
+.bg-teal-600,
+.bg-teal-700,
+.bg-teal-800,
+.bg-teal-900,
+.bg-green-600,
+.bg-green-700,
+.bg-green-800,
+.bg-green-900 {
+  @apply !bg-white dark:!bg-gray-800;
+}
+
+/* Ensure table elements are properly styled */
+table,
+tbody,
+thead,
+tr,
+th,
+td {
+  @apply !bg-white dark:!bg-gray-800;
+}
+
+/* Fix any dark theme issues */
+.dark table,
+.dark tbody,
+.dark thead,
+.dark tr,
+.dark th,
+.dark td {
+  @apply !bg-gray-800;
+}
+
+/* ============================
+   PAGE LAYOUT IMPROVEMENTS
+   ============================ */
+
+.page-container {
+  @apply bg-gray-50 dark:bg-gray-900;
+  @apply min-h-screen;
+}
+
+.content-container {
+  @apply bg-white dark:bg-gray-800;
+  @apply min-h-screen;
+}
+
+/* Fix table container backgrounds */
+.table-container {
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply overflow-hidden;
+}
+
+/* ============================
+   ENHANCED CARD COMPONENTS
+   ============================ */
+
+.kevera-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-300 ease-out;
+  @apply hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1;
+  @apply p-6;
+}
+
+.kevera-card--interactive {
+  @apply cursor-pointer;
+  @apply hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2;
+  @apply transform-gpu;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.kevera-card--flat {
+  @apply shadow-none border-0 bg-gray-50 dark:bg-gray-900;
+}
+
+.kevera-card--elevated {
+  @apply shadow-lg shadow-black/5 dark:shadow-black/20;
+}
+
+.kevera-card--gradient {
+  @apply bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900;
+}
+
+/* ============================
+   ENHANCED BUTTON COMPONENTS
+   ============================ */
+
+.kevera-btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium;
+  @apply transition-all duration-200 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply relative overflow-hidden;
+}
+
+.kevera-btn--primary {
+  @apply bg-gradient-to-r from-primary to-teal-600 text-white;
+  @apply hover:from-primary/90 hover:to-teal-500 hover:shadow-lg hover:shadow-primary/25;
+  @apply focus:ring-primary/50;
+  @apply active:scale-95;
+}
+
+.kevera-btn--secondary {
+  @apply bg-gradient-to-r from-accent to-amber-500 text-white;
+  @apply hover:from-accent/90 hover:to-amber-400 hover:shadow-lg hover:shadow-accent/25;
+  @apply focus:ring-accent/50;
+  @apply active:scale-95;
+}
+
+.kevera-btn--outline {
+  @apply border-2 border-primary text-primary bg-transparent;
+  @apply hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/25;
+  @apply focus:ring-primary/50;
+}
+
+.kevera-btn--ghost {
+  @apply text-gray-700 dark:text-gray-300 bg-transparent;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500/50;
+}
+
+.kevera-btn--danger {
+  @apply bg-gradient-to-r from-red-500 to-red-600 text-white;
+  @apply hover:from-red-400 hover:to-red-500 hover:shadow-lg hover:shadow-red-500/25;
+  @apply focus:ring-red-500/50;
+}
+
+.kevera-btn--success {
+  @apply bg-gradient-to-r from-green-500 to-green-600 text-white;
+  @apply hover:from-green-400 hover:to-green-500 hover:shadow-lg hover:shadow-green-500/25;
+  @apply focus:ring-green-500/50;
+}
+
+/* Button sizes */
+.kevera-btn--xs {
+  @apply px-2 py-1 text-xs;
+}
+
+.kevera-btn--sm {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.kevera-btn--lg {
+  @apply px-6 py-3 text-lg;
+}
+
+.kevera-btn--xl {
+  @apply px-8 py-4 text-xl;
+}
+
+/* Button loading state */
+.kevera-btn--loading {
+  @apply opacity-75 cursor-wait;
+}
+
+.kevera-btn--loading::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  @apply animate-pulse;
+}
+
+/* ============================
+   ENHANCED FORM COMPONENTS
+   ============================ */
+
+.kevera-input {
+  @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600;
+  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  @apply placeholder:text-gray-500 dark:placeholder:text-gray-400;
+  @apply transition-all duration-200 ease-out;
+  @apply focus:ring-2 focus:ring-primary/50 focus:border-primary;
+  @apply hover:border-gray-400 dark:hover:border-gray-500;
+}
+
+.kevera-input--error {
+  @apply border-red-500 focus:ring-red-500/50 focus:border-red-500;
+}
+
+.kevera-input--success {
+  @apply border-green-500 focus:ring-green-500/50 focus:border-green-500;
+}
+
+.kevera-select {
+  @apply kevera-input appearance-none cursor-pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 48px;
+}
+
+.kevera-textarea {
+  @apply kevera-input resize-none;
+  @apply min-h-[120px];
+}
+
+.kevera-checkbox {
+  @apply w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600;
+  @apply text-primary focus:ring-primary/50 focus:ring-offset-0;
+  @apply transition-all duration-200;
+  @apply bg-white dark:bg-gray-800;
+  @apply mr-2;
+}
+
+.kevera-radio {
+  @apply w-5 h-5 border-2 border-gray-300 dark:border-gray-600;
+  @apply text-primary focus:ring-primary/50 focus:ring-offset-0;
+  @apply transition-all duration-200;
+}
+
+/* ============================
+   ENHANCED TABLE COMPONENTS
+   ============================ */
+
+.kevera-table {
+  @apply w-full divide-y divide-gray-200 dark:divide-gray-700;
+  @apply rounded-lg overflow-hidden;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.kevera-table__header {
+  @apply bg-white dark:bg-gray-800;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.kevera-table__header-cell {
+  @apply px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400;
+  @apply uppercase tracking-wider;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.kevera-table__body {
+  @apply bg-white dark:bg-gray-800;
+  @apply divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.kevera-table__row {
+  @apply transition-colors duration-200;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700/30;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.kevera-table__row--selected {
+  @apply bg-primary/5 dark:bg-primary/10;
+}
+
+.kevera-table__cell {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.kevera-table__cell--muted {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.kevera-table__cell--numeric {
+  @apply text-right font-mono;
+}
+
+/* ============================
+   ENHANCED BADGE COMPONENTS
+   ============================ */
+
+.kevera-badge {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  @apply transition-all duration-200;
+}
+
+.kevera-badge--primary {
+  @apply bg-primary/10 text-primary border border-primary/20;
+}
+
+.kevera-badge--secondary {
+  @apply bg-accent/10 text-accent border border-accent/20;
+}
+
+.kevera-badge--success {
+  @apply bg-green-100 text-green-800 border border-green-200;
+  @apply dark:bg-green-900/20 dark:text-green-400 dark:border-green-800;
+}
+
+.kevera-badge--warning {
+  @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
+  @apply dark:bg-yellow-900/20 dark:text-yellow-400 dark:border-yellow-800;
+}
+
+.kevera-badge--danger {
+  @apply bg-red-100 text-red-800 border border-red-200;
+  @apply dark:bg-red-900/20 dark:text-red-400 dark:border-red-800;
+}
+
+.kevera-badge--info {
+  @apply bg-blue-100 text-blue-800 border border-blue-200;
+  @apply dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800;
+}
+
+.kevera-badge--pulse {
+  @apply animate-pulse;
+}
+
+.kevera-badge--with-dot::before {
+  content: '';
+  @apply w-2 h-2 rounded-full mr-1.5;
+  @apply bg-current opacity-75;
+}
+
+/* ============================
+   LOADING AND SKELETON COMPONENTS
+   ============================ */
+
+.kevera-skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+}
+
+.kevera-skeleton--text {
+  @apply h-4 w-full mb-2;
+}
+
+.kevera-skeleton--title {
+  @apply h-6 w-3/4 mb-4;
+}
+
+.kevera-skeleton--avatar {
+  @apply w-12 h-12 rounded-full;
+}
+
+.kevera-skeleton--button {
+  @apply h-10 w-24 rounded-lg;
+}
+
+.kevera-loading-dots {
+  @apply flex space-x-1;
+}
+
+.kevera-loading-dots > div {
+  @apply w-2 h-2 bg-current rounded-full animate-bounce;
+}
+
+.kevera-loading-dots > div:nth-child(1) { animation-delay: 0ms; }
+.kevera-loading-dots > div:nth-child(2) { animation-delay: 150ms; }
+.kevera-loading-dots > div:nth-child(3) { animation-delay: 300ms; }
+
+/* ============================
+   MODAL AND OVERLAY COMPONENTS
+   ============================ */
+
+.kevera-modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply opacity-0 invisible transition-all duration-300;
+}
+
+.kevera-modal-overlay--active {
+  @apply opacity-100 visible;
+}
+
+.kevera-modal {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl;
+  @apply max-w-lg w-full mx-4 max-h-[90vh] overflow-hidden;
+  @apply transform scale-95 transition-transform duration-300;
+}
+
+.kevera-modal--active {
+  @apply scale-100;
+}
+
+.kevera-modal__header {
+  @apply px-6 py-4 border-b border-gray-200 dark:border-gray-700;
+  @apply bg-gray-50 dark:bg-gray-900/50;
+}
+
+.kevera-modal__body {
+  @apply px-6 py-4 overflow-y-auto;
+}
+
+.kevera-modal__footer {
+  @apply px-6 py-4 border-t border-gray-200 dark:border-gray-700;
+  @apply bg-gray-50 dark:bg-gray-900/50;
+  @apply flex justify-end space-x-3;
+}
+
+/* ============================
+   TOAST NOTIFICATION COMPONENTS
+   ============================ */
+
+.kevera-toast {
+  @apply flex items-center p-4 mb-4 rounded-lg shadow-lg;
+  @apply transform translate-x-full transition-transform duration-300;
+  @apply border-l-4;
+}
+
+.kevera-toast--active {
+  @apply translate-x-0;
+}
+
+.kevera-toast--success {
+  @apply bg-green-50 border-green-500 text-green-800;
+  @apply dark:bg-green-900/20 dark:text-green-400;
+}
+
+.kevera-toast--warning {
+  @apply bg-yellow-50 border-yellow-500 text-yellow-800;
+  @apply dark:bg-yellow-900/20 dark:text-yellow-400;
+}
+
+.kevera-toast--error {
+  @apply bg-red-50 border-red-500 text-red-800;
+  @apply dark:bg-red-900/20 dark:text-red-400;
+}
+
+.kevera-toast--info {
+  @apply bg-blue-50 border-blue-500 text-blue-800;
+  @apply dark:bg-blue-900/20 dark:text-blue-400;
+}
+
+/* ============================
+   PROGRESS AND INDICATOR COMPONENTS
+   ============================ */
+
+.kevera-progress {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2;
+  @apply overflow-hidden;
+}
+
+.kevera-progress--sm {
+  @apply h-1.5;
+}
+
+.kevera-progress--lg {
+  @apply h-3;
+}
+
+.kevera-progress__bar {
+  @apply h-full bg-gradient-to-r from-primary to-teal-500;
+  @apply transition-all duration-500 ease-out;
+  @apply rounded-full;
+}
+
+.kevera-progress--animated .kevera-progress__bar {
+  @apply bg-gradient-to-r from-primary via-teal-500 to-primary;
+  @apply bg-size-200 animate-pulse;
+  background-size: 200% 100%;
+}
+
+.kevera-spinner {
+  @apply animate-spin rounded-full border-2 border-gray-200;
+  @apply border-t-primary;
+}
+
+.kevera-spinner--sm {
+  @apply w-4 h-4;
+}
+
+.kevera-spinner--md {
+  @apply w-6 h-6;
+}
+
+.kevera-spinner--lg {
+  @apply w-8 h-8;
+}
+
+/* ============================
+   NAVIGATION AND MENU COMPONENTS
+   ============================ */
+
+.kevera-nav-item {
+  @apply flex items-center px-3 py-2.5 rounded-lg;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply transition-all duration-200 ease-out;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply group cursor-pointer;
+  @apply no-underline;
+  @apply w-full;
+}
+
+.kevera-nav-item--active {
+  @apply bg-gradient-to-r from-primary/10 to-primary/5;
+  @apply text-primary font-medium;
+  @apply border-r-2 border-primary;
+  @apply bg-primary/5 dark:bg-primary/10;
+}
+
+.kevera-nav-item__icon {
+  @apply transition-transform duration-200;
+  @apply group-hover:scale-110;
+}
+
+.kevera-nav-item--active .kevera-nav-item__icon {
+  @apply text-primary;
+}
+
+/* ============================
+   UTILITY ANIMATIONS
+   ============================ */
+
+.kevera-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.kevera-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.kevera-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+.kevera-zoom-in {
+  animation: zoomIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================
+   RESPONSIVE UTILITIES
+   ============================ */
+
+@media (max-width: 640px) {
+  .kevera-card {
+    @apply mx-4 rounded-lg;
+  }
+  
+  .kevera-btn {
+    @apply text-sm px-3 py-2;
+  }
+  
+  .kevera-table__cell {
+    @apply px-3 py-2;
+  }
+  
+  .kevera-modal {
+    @apply mx-2 max-h-[95vh];
+  }
+}
+
+/* ============================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================ */
+
+.kevera-sr-only {
+  @apply sr-only;
+}
+
+.kevera-focus-visible {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .kevera-btn--primary {
+    @apply border-2 border-white;
+  }
+  
+  .kevera-badge {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .kevera-card,
+  .kevera-btn,
+  .kevera-input,
+  .kevera-modal,
+  .kevera-toast,
+  .kevera-nav-item {
+    @apply transition-none;
+  }
+  
+  .kevera-spinner {
+    @apply animate-none;
+  }
+  
+  .kevera-loading-dots > div {
+    @apply animate-none;
+  }
+}

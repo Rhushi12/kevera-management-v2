@@ -1,0 +1,309 @@
+<!-- Enhanced Intake (Step 1) Page Content -->
+<div class="p-6 space-y-8 max-w-7xl mx-auto">
+  <!-- Header Section -->
+  <section class="mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+          <span class="material-symbols-outlined mr-3 text-blue-600">inbox</span>
+          Material Intake
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">Record incoming materials and create lot entries for processing.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">qr_code_scanner</span>
+          Scan QR Code
+        </button>
+        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">print</span>
+          Print Labels
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Main Form -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="kevera-card">
+        <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Lot Information</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label class="kevera-label" for="lot-id">Lot ID <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input class="kevera-input pr-12" id="lot-id" placeholder="Scan or Enter Lot ID" required type="text" value="L-54321-S"/>
+              <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary">
+                <span class="material-symbols-outlined">qr_code_scanner</span>
+              </button>
+            </div>
+            <p class="kevera-help-text">This is the Lot ID from the material intake step.</p>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="style-template">Style/Template</label>
+            <input class="kevera-input" disabled id="style-template" placeholder="e.g., Men's T-Shirt" type="text" value="Men's Classic T-Shirt"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="size">Size <span class="text-red-500">*</span></label>
+            <select class="kevera-select" id="size" required>
+              <option>Select Size</option>
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="target-yield">Target Yield</label>
+            <input class="kevera-input" disabled id="target-yield" type="number" value="500"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="actual-pieces">Actual Pieces <span class="text-red-500">*</span></label>
+            <input class="kevera-input" id="actual-pieces" min="0" placeholder="e.g., 485" required type="number" value="485"/>
+            <div class="flex gap-2 mt-2">
+              <button class="kevera-btn kevera-btn--ghost kevera-btn--xs">Set Actual = 450</button>
+              <button class="kevera-btn kevera-btn--ghost kevera-btn--xs">Copy Target → Actual</button>
+            </div>
+          </div>
+          
+          <div class="md:col-span-2">
+            <div class="flex items-center">
+              <input class="kevera-checkbox" id="split-bundles" type="checkbox"/>
+              <label class="kevera-checkbox-label" for="split-bundles">Split into sub-bundles</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-bundles Section -->
+        <div class="mt-8 hidden" id="sub-bundles-section">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Sub-Bundles</h4>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">Auto Split</button>
+          </div>
+          <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+            <table class="kevera-table">
+              <thead class="kevera-table__header">
+                <tr>
+                  <th class="kevera-table__header-cell">Sub-bundle ID</th>
+                  <th class="kevera-table__header-cell">Size</th>
+                  <th class="kevera-table__header-cell">Pieces</th>
+                </tr>
+              </thead>
+              <tbody class="kevera-table__body">
+                <!-- Sub-bundle rows will be dynamically generated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-6">
+      <!-- Lot Summary -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white flex items-center">
+          <span class="material-symbols-outlined mr-2 text-primary">summarize</span>
+          Lot Summary
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Lot ID</p>
+            <p class="font-semibold text-gray-900 dark:text-white font-mono">L-54321-S</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Style/Template</p>
+            <p class="font-semibold text-gray-900 dark:text-white">Men's Classic T-Shirt</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Size</p>
+            <p class="font-semibold text-gray-900 dark:text-white">M</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Target / Actual</p>
+            <p class="font-semibold text-gray-900 dark:text-white">500 / <span class="text-primary">485</span></p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
+            <div class="flex items-center gap-2">
+              <span class="kevera-badge kevera-badge--warning">Waiting for Bundling</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Last Update</p>
+            <p class="font-semibold text-gray-900 dark:text-white">2023-10-27 10:30 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Actions</h3>
+        <div class="space-y-3">
+          <button class="kevera-btn kevera-btn--primary w-full">
+            <span class="material-symbols-outlined mr-2">save</span>
+            Save Batch
+          </button>
+          <button class="kevera-btn kevera-btn--outline w-full">
+            <span class="material-symbols-outlined mr-2">print</span>
+            Print Labels
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Batches -->
+  <section>
+    <div class="kevera-card">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Recent Intake Batches</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">View and manage recently processed intake batches</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+            <input class="kevera-input pl-10 pr-4 py-2 w-64 text-sm" placeholder="Search batches..." type="text"/>
+          </div>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            <span class="material-symbols-outlined mr-1">filter_list</span>
+            Filter
+          </button>
+        </div>
+      </div>
+      
+      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+        <table class="kevera-table">
+          <thead class="kevera-table__header">
+            <tr>
+              <th class="kevera-table__header-cell">
+                <div class="flex items-center gap-2">
+                  <span>Lot ID</span>
+                  <span class="material-symbols-outlined text-gray-400 cursor-pointer">unfold_more</span>
+                </div>
+              </th>
+              <th class="kevera-table__header-cell">Style</th>
+              <th class="kevera-table__header-cell">Size</th>
+              <th class="kevera-table__header-cell">Actual Pieces</th>
+              <th class="kevera-table__header-cell">Status</th>
+              <th class="kevera-table__header-cell">Last Updated</th>
+              <th class="kevera-table__header-cell">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="kevera-table__body">
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">L-54321-S</span>
+              </td>
+              <td class="kevera-table__cell">Men's Classic T-Shirt</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--secondary">Medium</span>
+              </td>
+              <td class="kevera-table__cell">485</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--warning">Waiting for Bundling</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Oct 27, 2023 10:30 AM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Label">
+                    <span class="material-symbols-outlined">print</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">L-54320-M</span>
+              </td>
+              <td class="kevera-table__cell">Women's Blouse</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--secondary">Large</span>
+              </td>
+              <td class="kevera-table__cell">200</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--success">Ready for Cutting</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Oct 26, 2023 3:15 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Label">
+                    <span class="material-symbols-outlined">print</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">L-54319-XL</span>
+              </td>
+              <td class="kevera-table__cell">Casual Polo</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--secondary">X-Large</span>
+              </td>
+              <td class="kevera-table__cell">300</td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--primary">In Cutting</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Oct 25, 2023 11:45 AM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Label">
+                    <span class="material-symbols-outlined">print</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Table Footer -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          Showing <span class="font-medium">1-3</span> of <span class="font-medium">12</span> recent batches
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
+            <span class="material-symbols-outlined">chevron_left</span>
+            Previous
+          </button>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            Next
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End Intake (Step 1) Page Content -->

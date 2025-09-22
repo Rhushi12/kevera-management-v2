@@ -1,0 +1,208 @@
+!DOCTYPE html
+html lang=enhead
+meta charset=utf-8
+meta content=width=device-width, initial-scale=1.0 name=viewport
+titleKevera - Admintitle
+link crossorigin= href=httpsfonts.gstatic.com rel=preconnect
+link as=style href=httpsfonts.googleapis.comcss2display=swap&amp;family=Interwght@400;500;700;900&amp;family=Noto+Sanswght@400;500;700;900 onload=this.rel='stylesheet' rel=stylesheet
+script src=httpscdn.tailwindcss.complugins=forms,container-queriesscript
+script
+      tailwind.config = {
+        darkMode class,
+        theme {
+          extend {
+            colors {
+              primary #0d776d,
+              background-light #f6f8f8,
+              background-dark #112120,
+              surface-light #ffffff,
+              surface-dark #1a2e2c,
+              text-primary-light #0d1c1a,
+              text-primary-dark #e8ebeb,
+              text-secondary-light #566f6c,
+              text-secondary-dark #a0b5b3,
+              border-light #e1e7e7,
+              border-dark #2b4542,
+            },
+            fontFamily {
+              display [Inter, sans-serif],
+            },
+            borderRadius {
+              DEFAULT 0.5rem,
+              lg 0.75rem,
+              xl 1rem,
+              full 9999px,
+            },
+          },
+        },
+      };
+    script
+link href=httpsfonts.googleapis.comcss2family=Material+Symbols+Outlined rel=stylesheet
+head
+body class=font-display bg-background-light darkbg-background-dark text-text-primary-light darktext-text-primary-dark
+div class=flex flex-col min-h-screen
+header class=sticky top-0 z-10 bg-surface-light80 darkbg-surface-dark80 backdrop-blur-sm border-b border-border-light darkborder-border-dark
+div class=container mx-auto px-4 smpx-6 lgpx-8
+div class=flex items-center justify-between h-16
+div class=flex items-center gap-4
+a class=flex items-center gap-2 text-primary href=#
+svg class=h-6 w-6 fill=none viewBox=0 0 48 48 xmlns=httpwww.w3.org2000svg
+g clip-path=url(#clip0_6_319)
+path d=M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z fill=currentColorpath
+g
+defs
+clipPath id=clip0_6_319rect fill=white height=48 width=48rectclipPath
+defs
+svg
+h1 class=text-xl font-boldKeverah1
+a
+div
+nav class=hidden mdflex items-center gap-6
+a class=text-sm font-medium text-text-secondary-light darktext-text-secondary-dark hovertext-primary transition-colors href=#Dashboarda
+a class=text-sm font-medium text-text-secondary-light darktext-text-secondary-dark hovertext-primary transition-colors href=#Ordersa
+a class=text-sm font-medium text-text-secondary-light darktext-text-secondary-dark hovertext-primary transition-colors href=#Inventorya
+a class=text-sm font-medium text-text-secondary-light darktext-text-secondary-dark hovertext-primary transition-colors href=#Productiona
+a class=text-sm font-medium text-text-secondary-light darktext-text-secondary-dark hovertext-primary transition-colors href=#Analyticsa
+nav
+div class=flex items-center gap-4
+button class=p-2 rounded-full hoverbg-primary10 darkhoverbg-primary20 text-text-secondary-light darktext-text-secondary-dark transition-colors
+span class=material-symbols-outlinednotificationsspan
+button
+div class=w-10 h-10 rounded-full bg-cover bg-center style='background-image url(httpslh3.googleusercontent.comaida-publicAB6AXuAreO7LBqkaZIvwpksvipkpPOcXDdLI3AQT5jnnFcz8LhNqCpNRaspzUycmDNfGQSsm9RISYeH5NBGtg_FVaMa5kJZ42S492uXw6ja4dM4_Yp-qpAdcSowK4hfT3bP-8VGeiJ9RJizFaqieDSIyFIhfbEIQCQSeCXvnTdKdICdP0vplyiI4F5cilczr_DyoYP64xrm1QaMyYjeeXk9_8HQ9hsfSmbReC34YoqdH3nQ6gi3pJHuftBv2IGJ1Y3-fkaoxipVn-t86PQ);'div
+div
+div
+div
+header
+main class=flex-grow container mx-auto px-4 smpx-6 lgpx-8 py-8
+div class=max-w-5xl mx-auto
+h2 class=text-3xl font-bold tracking-tight text-text-primary-light darktext-text-primary-darkAdminh2
+div class=mt-6
+div class=border-b border-border-light darkborder-border-dark
+nav aria-label=Tabs class=-mb-px flex space-x-8
+a class=border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm href=#Users &amp; Rolesa
+a class=border-transparent text-text-secondary-light darktext-text-secondary-dark hovertext-primary hoverborder-primary50 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm href=#System Settingsa
+nav
+div
+div
+div class=mt-6 bg-surface-light darkbg-surface-dark p-4 smp-6 rounded-lg shadow-sm
+div class=flex flex-col smflex-row items-center justify-between gap-4
+div class=flex items-center gap-2 w-full smw-auto
+div class=relative w-full smw-64
+div class=pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3
+span class=material-symbols-outlined text-text-secondary-light darktext-text-secondary-darksearchspan
+div
+input class=w-full pl-10 pr-4 py-2 rounded-lg border border-border-light darkborder-border-dark bg-transparent focusring-2 focusring-primary focusborder-primary transition placeholder=Search by NameEmail type=text
+div
+button class=p-2 rounded-lg border border-border-light darkborder-border-dark hoverbg-primary10 darkhoverbg-primary20 transition-colors
+span class=material-symbols-outlined text-text-secondary-light darktext-text-secondary-darkfilter_listspan
+button
+div
+button class=flex items-center justify-center gap-2 w-full smw-auto px-4 py-2 bg-primary text-white rounded-lg hoverbg-opacity-90 transition-colors font-medium
+span class=material-symbols-outlinedaddspan
+spanInviteAdd Userspan
+button
+div
+div class=mt-6 flow-root
+div class=-mx-4 -my-2 overflow-x-auto sm-mx-6 lg-mx-8
+div class=inline-block min-w-full py-2 align-middle smpx-6 lgpx-8
+div class=overflow-hidden rounded-lg border border-border-light darkborder-border-dark
+table class=min-w-full divide-y divide-border-light darkdivide-border-dark
+thead class=bg-background-light darkbg-background-dark
+tr
+th class=py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-text-primary-light darktext-text-primary-dark smpl-6 scope=colNameth
+th class=px-3 py-3.5 text-left text-sm font-semibold text-text-primary-light darktext-text-primary-dark scope=colRoleth
+th class=px-3 py-3.5 text-left text-sm font-semibold text-text-primary-light darktext-text-primary-dark hidden lgtable-cell scope=colSteps Assignedth
+th class=px-3 py-3.5 text-left text-sm font-semibold text-text-primary-light darktext-text-primary-dark hidden mdtable-cell scope=colLast Activeth
+th class=relative py-3.5 pl-3 pr-4 smpr-6 scope=col
+span class=sr-onlyActionsspan
+th
+tr
+thead
+tbody class=divide-y divide-border-light darkdivide-border-dark bg-surface-light darkbg-surface-dark
+tr class=hoverbg-background-light darkhoverbg-background-dark cursor-pointer
+td class=whitespace-nowrap py-4 pl-4 pr-3 text-sm smpl-6
+div class=font-medium text-text-primary-light darktext-text-primary-darkEthan Harperdiv
+div class=text-text-secondary-light darktext-text-secondary-darkethan.harper@example.comdiv
+td
+td class=whitespace-nowrap px-3 py-4 text-sm
+span class=inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary10 text-primaryAdminspan
+td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden lgtable-cell5 of 5td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden mdtable-cell2 days agotd
+td class=relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium smpr-6
+button class=text-primary hovertext-primary80Editbutton
+td
+tr
+tr class=hoverbg-background-light darkhoverbg-background-dark cursor-pointer
+td class=whitespace-nowrap py-4 pl-4 pr-3 text-sm smpl-6
+div class=font-medium text-text-primary-light darktext-text-primary-darkOlivia Bennettdiv
+div class=text-text-secondary-light darktext-text-secondary-darkolivia.bennett@example.comdiv
+td
+td class=whitespace-nowrap px-3 py-4 text-sm
+span class=inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary10 text-primarySupervisorspan
+td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden lgtable-cell5 of 5td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden mdtable-cell1 day agotd
+td class=relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium smpr-6
+button class=text-primary hovertext-primary80Editbutton
+td
+tr
+tr class=hoverbg-background-light darkhoverbg-background-dark cursor-pointer
+td class=whitespace-nowrap py-4 pl-4 pr-3 text-sm smpl-6
+div class=font-medium text-text-primary-light darktext-text-primary-darkNoah Carterdiv
+div class=text-text-secondary-light darktext-text-secondary-darknoah.carter@example.comdiv
+td
+td class=whitespace-nowrap px-3 py-4 text-sm
+span class=inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary10 text-primaryOperatorspan
+td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden lgtable-cellSewingtd
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden mdtable-cell3 days agotd
+td class=relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium smpr-6
+button class=text-primary hovertext-primary80Editbutton
+td
+tr
+tr class=hoverbg-background-light darkhoverbg-background-dark cursor-pointer opacity-70
+td class=whitespace-nowrap py-4 pl-4 pr-3 text-sm smpl-6
+div class=font-medium text-text-primary-light darktext-text-primary-darkAva Thompsondiv
+div class=text-text-secondary-light darktext-text-secondary-darkava.thompson@example.comdiv
+td
+td class=whitespace-nowrap px-3 py-4 text-sm
+span class=inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary10 text-primaryViewerspan
+td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden lgtable-cellIntaketd
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden mdtable-cell1 week agotd
+td class=relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium smpr-6
+button class=text-text-secondary-light darktext-text-secondary-dark cursor-not-allowed disabled=Editbutton
+td
+tr
+tr class=hoverbg-background-light darkhoverbg-background-dark cursor-pointer
+td class=whitespace-nowrap py-4 pl-4 pr-3 text-sm smpl-6
+div class=font-medium text-text-primary-light darktext-text-primary-darkLiam Fosterdiv
+div class=text-text-secondary-light darktext-text-secondary-darkliam.foster@example.comdiv
+td
+td class=whitespace-nowrap px-3 py-4 text-sm
+span class=inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary10 text-primaryOperatorspan
+td
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden lgtable-cellCuttingtd
+td class=whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light darktext-text-secondary-dark hidden mdtable-cell2 days agotd
+td class=relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium smpr-6
+button class=text-primary hovertext-primary80Editbutton
+td
+tr
+tbody
+table
+div
+div
+div
+div
+div
+div
+main
+footer class=border-t border-border-light darkborder-border-dark mt-auto
+div class=container mx-auto px-4 smpx-6 lgpx-8 py-6 text-center text-sm text-text-secondary-light darktext-text-secondary-dark
+p© 2024 Kevera. All rights reserved.p
+div
+footer
+div
+
+bodyhtml

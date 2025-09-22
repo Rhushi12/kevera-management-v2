@@ -1,0 +1,390 @@
+<!-- Enhanced Admin Page Content -->
+<div class="p-6 space-y-8 max-w-7xl mx-auto">
+  <!-- Header Section -->
+  <section class="mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+          <span class="material-symbols-outlined mr-3 text-purple-600">admin_panel_settings</span>
+          Administration
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">Manage users, roles, and system settings for your manufacturing platform.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">person_add</span>
+          Invite User
+        </button>
+        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">settings</span>
+          Settings
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs -->
+  <section>
+    <div class="kevera-card">
+      <nav class="flex space-x-8 border-b border-gray-200 dark:border-gray-700 -mb-px">
+        <button class="py-4 px-1 border-b-2 border-primary text-primary font-medium text-sm whitespace-nowrap">
+          Users & Roles
+        </button>
+        <button class="py-4 px-1 border-b-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary/50 font-medium text-sm whitespace-nowrap">
+          System Settings
+        </button>
+        <button class="py-4 px-1 border-b-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary/50 font-medium text-sm whitespace-nowrap">
+          Security
+        </button>
+        <button class="py-4 px-1 border-b-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary/50 font-medium text-sm whitespace-nowrap">
+          Audit Log
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Search and Filters -->
+  <section>
+    <div class="kevera-card">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <div class="relative w-full sm:w-80">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            <input class="kevera-input pl-10 pr-4 py-2 text-sm" placeholder="Search by Name/Email" type="text">
+          </div>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            <span class="material-symbols-outlined">filter_list</span>
+          </button>
+        </div>
+        <button class="kevera-btn kevera-btn--primary w-full sm:w-auto">
+          <span class="material-symbols-outlined mr-2">person_add</span>
+          Invite/Add User
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Cards -->
+  <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div class="kevera-card">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <div class="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+            <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">group</span>
+          </div>
+        </div>
+        <div class="ml-4">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Users</p>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white">12</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="kevera-card">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <div class="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+            <span class="material-symbols-outlined text-green-600 dark:text-green-400">check_circle</span>
+          </div>
+        </div>
+        <div class="ml-4">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Active Users</p>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white">10</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="kevera-card">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <div class="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
+            <span class="material-symbols-outlined text-purple-600 dark:text-purple-400">security</span>
+          </div>
+        </div>
+        <div class="ml-4">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Admin Users</p>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white">3</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="kevera-card">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <div class="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
+            <span class="material-symbols-outlined text-orange-600 dark:text-orange-400">schedule</span>
+          </div>
+        </div>
+        <div class="ml-4">
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Last Login</p>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white">2h</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Users Table -->
+  <section>
+    <div class="kevera-card">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">System Users</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Manage user accounts, roles, and permissions</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            <span class="material-symbols-outlined mr-1">download</span>
+            Export
+          </button>
+          <span class="text-sm text-gray-600 dark:text-gray-400">5 users total</span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+        <table class="kevera-table">
+          <thead class="kevera-table__header">
+            <tr>
+              <th class="kevera-table__header-cell">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <span>User</span>
+                  <span class="material-symbols-outlined text-gray-400 cursor-pointer">unfold_more</span>
+                </div>
+              </th>
+              <th class="kevera-table__header-cell">Role</th>
+              <th class="kevera-table__header-cell">Steps Assigned</th>
+              <th class="kevera-table__header-cell">Status</th>
+              <th class="kevera-table__header-cell">Last Active</th>
+              <th class="kevera-table__header-cell">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="kevera-table__body">
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">EH</div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">Ethan Harper</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">ethan.harper@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--primary">Admin</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex flex-wrap gap-1">
+                  <span class="kevera-badge kevera-badge--secondary">All Steps</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--success">Active</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit Permissions">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Reset Password">
+                    <span class="material-symbols-outlined">lock_reset</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">OB</div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">Olivia Bennett</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">olivia.bennett@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--warning">Supervisor</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex flex-wrap gap-1">
+                  <span class="kevera-badge kevera-badge--secondary">All Steps</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--success">Active</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">1 day ago</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit Permissions">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Reset Password">
+                    <span class="material-symbols-outlined">lock_reset</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold">NC</div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">Noah Carter</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">noah.carter@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--info">Operator</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex flex-wrap gap-1">
+                  <span class="kevera-badge kevera-badge--success">Sewing</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--success">Active</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">3 days ago</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit Permissions">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Reset Password">
+                    <span class="material-symbols-outlined">lock_reset</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row opacity-75">
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold">AT</div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">Ava Thompson</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">ava.thompson@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--secondary">Viewer</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex flex-wrap gap-1">
+                  <span class="kevera-badge kevera-badge--warning">Intake</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--error">Inactive</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">1 week ago</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs opacity-50" disabled title="View Profile">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs opacity-50" disabled title="Edit Permissions">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-green-600" title="Activate User">
+                    <span class="material-symbols-outlined">play_circle</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="kevera-checkbox">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold">LF</div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">Liam Foster</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">liam.foster@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--info">Operator</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex flex-wrap gap-1">
+                  <span class="kevera-badge kevera-badge--primary">Cutting</span>
+                </div>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--success">Active</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit Permissions">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Reset Password">
+                    <span class="material-symbols-outlined">lock_reset</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          Showing <span class="font-medium">1-5</span> of <span class="font-medium">5</span> users
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
+            <span class="material-symbols-outlined">chevron_left</span>
+            Previous
+          </button>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
+            Next
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End Enhanced Admin Page Content -->

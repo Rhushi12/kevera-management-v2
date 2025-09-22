@@ -1,0 +1,246 @@
+/* 
+ * Kevera Manufacturing - Design Tokens
+ * Consolidated color palette and typography system
+ */
+
+:root {
+  /* Primary Colors */
+  --color-primary: #0F766E;
+  --color-accent: #F59E0B;
+  
+  /* Background Colors */
+  --bg-light: #f6f8f8;
+  --bg-dark: #112120;
+  --surface-light: #ffffff;
+  --surface-dark: #1a2e2c;
+  
+  /* Text Colors */
+  --text-primary-light: #111827;
+  --text-primary-dark: #f9fafb;
+  --text-secondary-light: #6b7280;
+  --text-secondary-dark: #9ca3af;
+  --text-muted-light: #9ca3af;
+  --text-muted-dark: #6b7280;
+  
+  /* Border Colors */
+  --border-light: #e5e7eb;
+  --border-dark: #4b5563;
+  
+  /* Status Colors */
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-error: #ef4444;
+  --status-info: #3b82f6;
+  
+  /* Typography */
+  --font-family-display: 'Inter', 'Manrope', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-default: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-default: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Dark mode color overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-light: var(--bg-dark);
+    --surface-light: var(--surface-dark);
+    --text-primary-light: var(--text-primary-dark);
+    --text-secondary-light: var(--text-secondary-dark);
+    --border-light: var(--border-dark);
+  }
+}
+
+/* Utility classes for consistent styling */
+.kevera-card {
+  background-color: var(--surface-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+.kevera-button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-default);
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.kevera-button-primary:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 90%, black);
+}
+
+.kevera-button-secondary {
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-default);
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.kevera-button-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-accent) 90%, black);
+}
+
+.kevera-input {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-default);
+  padding: var(--space-3);
+  color: var(--text-primary-light);
+  font-family: var(--font-family-body);
+}
+
+.kevera-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+/* Status badge styles */
+.status-badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.status-badge--success {
+  background-color: color-mix(in srgb, var(--status-success) 10%, transparent);
+  color: var(--status-success);
+}
+
+.status-badge--warning {
+  background-color: color-mix(in srgb, var(--status-warning) 10%, transparent);
+  color: var(--status-warning);
+}
+
+.status-badge--error {
+  background-color: color-mix(in srgb, var(--status-error) 10%, transparent);
+  color: var(--status-error);
+}
+
+.status-badge--info {
+  background-color: color-mix(in srgb, var(--status-info) 10%, transparent);
+  color: var(--status-info);
+}
+
+/* Material Icons consistent sizing */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Navigation Active States */
+.nav-link {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link.is-active {
+  color: var(--color-primary);
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border-left-color: var(--color-primary);
+}
+
+.dark .nav-link.is-active {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+/* Mobile overlay improvements */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 35;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile sidebar positioning */
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 40;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  aside {
+    position: relative;
+    transform: translateX(0);
+  }
+}
+
+aside.mobile-open {
+  transform: translateX(0);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .kevera-card {
+    padding: var(--space-4);
+  }
+  
+  .kevera-button-primary,
+  .kevera-button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

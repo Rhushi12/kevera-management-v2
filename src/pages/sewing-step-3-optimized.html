@@ -1,0 +1,73 @@
+<!-- Sewing (Step 3) Page Content -->
+<div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+  <div class="mb-6">
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark">Sewing (Step 3)</h2>
+    <p class="mt-1 text-text-secondary-light dark:text-text-secondary-dark">Assign jobs, track progress, and manage your sewing workforce.</p>
+  </div>
+  
+  <div class="mb-8">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Filters:</span>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20">All</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Lot ID</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Size</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Worker</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-full bg-background-light dark:bg-surface-dark hover:bg-primary/10 dark:hover:bg-primary/20 text-text-primary-light dark:text-text-primary-dark">Status</button>
+    </div>
+  </div>
+  
+  <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+    <h3 class="text-xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">Create/Update Sewing Job</h3>
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="lot-id">Lot ID</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="lot-id" placeholder="e.g., LT-2024-001" type="text"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="worker">Worker</label>
+        <select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="worker">
+          <option disabled="" selected="">Select a worker</option>
+          <option>Maria Garcia</option>
+          <option>John Smith</option>
+          <option>Anika Sharma</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="machine-id">Machine ID</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="machine-id" placeholder="e.g., JUKI-DDL-8700" type="text"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="assigned-pieces">Assigned Pieces</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="assigned-pieces" placeholder="e.g., 150" type="number"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="completed-pieces">Completed Pieces</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="completed-pieces" placeholder="e.g., 75" type="number"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="start-time">Start Time</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="start-time" type="datetime-local"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="end-time">End Time</label>
+        <input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" id="end-time" type="datetime-local"/>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark" for="notes">Notes</label>
+        <textarea class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" id="notes" placeholder="Add any relevant notes..." rows="4"></textarea>
+      </div>
+      <div class="md:col-span-2 flex flex-col sm:flex-row gap-3 pt-4">
+        <button class="w-full sm:w-auto flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity" type="submit">
+          Assign Job
+        </button>
+        <button class="w-full sm:w-auto flex-1 bg-primary/10 dark:bg-primary/20 text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors" type="button">
+          Update Progress
+        </button>
+        <button class="w-full sm:w-auto flex-1 bg-primary/10 dark:bg-primary/20 text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors" type="button">
+          Mark Completed
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Sewing Page Content -->

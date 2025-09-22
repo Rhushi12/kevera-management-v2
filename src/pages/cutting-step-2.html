@@ -1,0 +1,286 @@
+<!-- Enhanced Cutting & Bundling (Step 2) Page Content -->
+<div class="p-6 space-y-8 max-w-7xl mx-auto">
+  <!-- Header Section -->
+  <section class="mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+          <span class="material-symbols-outlined mr-3 text-purple-600">cut</span>
+          Cutting & Bundling
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">Process material cutting and create organized bundles for next steps.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">add</span>
+          New Cut Job
+        </button>
+        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
+          <span class="material-symbols-outlined mr-2">qr_code_scanner</span>
+          Scan Bundle
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Main Form -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="kevera-card">
+        <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Cutting Details</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label class="kevera-label" for="lot-id">Lot ID <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input class="kevera-input pr-12" id="lot-id" placeholder="Scan or Enter Lot ID" required type="text" value="L-54321-S"/>
+              <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary">
+                <span class="material-symbols-outlined">qr_code_scanner</span>
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="style-template">Style/Template</label>
+            <input class="kevera-input" disabled id="style-template" type="text" value="Men's Classic T-Shirt"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="size">Size</label>
+            <input class="kevera-input" disabled id="size" type="text" value="Medium"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="input-pieces">Input Pieces</label>
+            <input class="kevera-input" disabled id="input-pieces" type="number" value="485"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="cut-pieces">Cut Pieces <span class="text-red-500">*</span></label>
+            <input class="kevera-input" id="cut-pieces" min="0" placeholder="e.g., 480" required type="number" value="480"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="waste">Waste/Defects</label>
+            <input class="kevera-input" id="waste" min="0" placeholder="e.g., 5" type="number" value="5"/>
+          </div>
+          
+          <div>
+            <label class="kevera-label" for="bundle-size">Bundle Size</label>
+            <select class="kevera-select" id="bundle-size">
+              <option>10 pieces per bundle</option>
+              <option selected>20 pieces per bundle</option>
+              <option>25 pieces per bundle</option>
+              <option>50 pieces per bundle</option>
+            </select>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label class="kevera-label" for="notes">Notes</label>
+            <textarea class="kevera-textarea" id="notes" placeholder="Any special cutting notes or observations..."></textarea>
+          </div>
+        </div>
+
+        <!-- Auto-generated Bundles -->
+        <div class="mt-8">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Generated Bundles</h4>
+            <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">Regenerate</button>
+          </div>
+          <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+            <table class="kevera-table">
+              <thead class="kevera-table__header">
+                <tr>
+                  <th class="kevera-table__header-cell">Bundle ID</th>
+                  <th class="kevera-table__header-cell">Pieces</th>
+                  <th class="kevera-table__header-cell">QR Code</th>
+                  <th class="kevera-table__header-cell">Status</th>
+                  <th class="kevera-table__header-cell">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="kevera-table__body">
+                <tr class="kevera-table__row">
+                  <td class="kevera-table__cell">
+                    <span class="font-semibold text-gray-900 dark:text-white font-mono">B-001</span>
+                  </td>
+                  <td class="kevera-table__cell">20</td>
+                  <td class="kevera-table__cell">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs">
+                      <span class="material-symbols-outlined mr-1">qr_code</span>
+                      Generate
+                    </button>
+                  </td>
+                  <td class="kevera-table__cell">
+                    <span class="kevera-badge kevera-badge--success">Ready</span>
+                  </td>
+                  <td class="kevera-table__cell">
+                    <div class="flex items-center gap-1">
+                      <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Label">
+                        <span class="material-symbols-outlined">print</span>
+                      </button>
+                      <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
+                        <span class="material-symbols-outlined">edit</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="kevera-table__row">
+                  <td class="kevera-table__cell">
+                    <span class="font-semibold text-gray-900 dark:text-white font-mono">B-002</span>
+                  </td>
+                  <td class="kevera-table__cell">20</td>
+                  <td class="kevera-table__cell">
+                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs">
+                      <span class="material-symbols-outlined mr-1">qr_code</span>
+                      Generate
+                    </button>
+                  </td>
+                  <td class="kevera-table__cell">
+                    <span class="kevera-badge kevera-badge--success">Ready</span>
+                  </td>
+                  <td class="kevera-table__cell">
+                    <div class="flex items-center gap-1">
+                      <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Label">
+                        <span class="material-symbols-outlined">print</span>
+                      </button>
+                      <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
+                        <span class="material-symbols-outlined">edit</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-6">
+      <!-- Cutting Summary -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white flex items-center">
+          <span class="material-symbols-outlined mr-2 text-primary">summarize</span>
+          Cutting Summary
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Input Pieces</p>
+            <p class="font-semibold text-gray-900 dark:text-white">485</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Cut Pieces</p>
+            <p class="font-semibold text-primary">480</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Waste/Defects</p>
+            <p class="font-semibold text-red-600">5</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Efficiency</p>
+            <p class="font-semibold text-green-600">98.97%</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Total Bundles</p>
+            <p class="font-semibold text-gray-900 dark:text-white">24</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
+            <span class="kevera-badge kevera-badge--warning">In Progress</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="kevera-card">
+        <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Actions</h3>
+        <div class="space-y-3">
+          <button class="kevera-btn kevera-btn--primary w-full">
+            <span class="material-symbols-outlined mr-2">save</span>
+            Save Cut Job
+          </button>
+          <button class="kevera-btn kevera-btn--outline w-full">
+            <span class="material-symbols-outlined mr-2">print</span>
+            Print All Labels
+          </button>
+          <button class="kevera-btn kevera-btn--ghost w-full">
+            <span class="material-symbols-outlined mr-2">send</span>
+            Send to Sewing
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Cut Jobs -->
+  <section>
+    <div class="kevera-card">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Recent Cut Jobs</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">View and manage recently completed cutting operations</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+            <input class="kevera-input pl-10 pr-4 py-2 w-64 text-sm" placeholder="Search cut jobs..." type="text"/>
+          </div>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
+            <span class="material-symbols-outlined mr-1">filter_list</span>
+            Filter
+          </button>
+        </div>
+      </div>
+      
+      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+        <table class="kevera-table">
+          <thead class="kevera-table__header">
+            <tr>
+              <th class="kevera-table__header-cell">Lot ID</th>
+              <th class="kevera-table__header-cell">Style</th>
+              <th class="kevera-table__header-cell">Cut Pieces</th>
+              <th class="kevera-table__header-cell">Bundles</th>
+              <th class="kevera-table__header-cell">Efficiency</th>
+              <th class="kevera-table__header-cell">Status</th>
+              <th class="kevera-table__header-cell">Completed</th>
+              <th class="kevera-table__header-cell">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="kevera-table__body">
+            <tr class="kevera-table__row">
+              <td class="kevera-table__cell">
+                <span class="font-semibold text-gray-900 dark:text-white font-mono">L-54321-S</span>
+              </td>
+              <td class="kevera-table__cell">Men's Classic T-Shirt</td>
+              <td class="kevera-table__cell">480</td>
+              <td class="kevera-table__cell">24</td>
+              <td class="kevera-table__cell">
+                <span class="text-green-600 font-semibold">98.97%</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="kevera-badge kevera-badge--warning">In Progress</span>
+              </td>
+              <td class="kevera-table__cell">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Oct 27, 2023 2:30 PM</span>
+              </td>
+              <td class="kevera-table__cell">
+                <div class="flex items-center gap-1">
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Details">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Print Labels">
+                    <span class="material-symbols-outlined">print</span>
+                  </button>
+                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Send to Next Step">
+                    <span class="material-symbols-outlined">send</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End Cutting & Bundling (Step 2) Page Content -->
