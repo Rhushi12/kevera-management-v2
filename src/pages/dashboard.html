@@ -1,703 +1,212 @@
-<!-- Enhanced Dashboard Page Content -->
-<div class="p-6 space-y-8 max-w-7xl mx-auto bg-white dark:bg-gray-900 min-h-screen">
-  <!-- Welcome Section -->
-  <section class="mb-8">
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-      <div>
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Welcome back, Rhushi!</h2>
-        <p class="text-gray-600 dark:text-gray-400">Here's what's happening in your manufacturing facility today.</p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
-          <span class="material-symbols-outlined mr-2">add</span>
-          New Intake
-        </button>
-        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
-          <span class="material-symbols-outlined mr-2">print</span>
-          Print Report
-        </button>
-      </div>
-    </div>
-  </section>
+<!--
+=========================================================
+Kevera - Dashboard Redesign (v5 - Light Theme)
+=========================================================
+- Converts the previous dark-themed design to a light theme.
+- All backgrounds are now light, with dark text for readability.
+- Preserves the exact same layout and functionality.
+- Adopts a clean, professional, light-colored aesthetic.
+-->
+<div class="bg-gray-100 dark:bg-gray-900 min-h-screen py-8">
+  <div class="max-w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
 
-  <!-- Key Metrics Overview -->
-  <section class="mb-8">
-    <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white flex items-center">
-      <span class="material-symbols-outlined mr-2 text-primary">analytics</span>
-      Production Overview
-    </h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <!-- Intake Metric -->
-      <div class="kevera-card kevera-card--interactive group bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">inbox</span>
-          </div>
-          <div class="text-right">
-            <div class="text-xs text-green-600 dark:text-green-400 font-medium">+12%</div>
-          </div>
+    <!-- 1. Page Header -->
+    <header>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, Rhushi!</h1>
+          <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Here is a real-time overview of your manufacturing floor.</p>
         </div>
-        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Intake</p>
-        <p class="text-3xl font-bold text-gray-900 dark:text-white mb-2">120</p>
-        <div class="kevera-progress mb-2">
-          <div class="kevera-progress__bar" style="width: 75%"></div>
+        <div class="flex-shrink-0 flex items-center gap-4">
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm text-sm">
+            <span class="material-symbols-outlined mr-2">print</span>
+            Print Report
+          </button>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm text-sm">
+            <span class="material-symbols-outlined mr-2">add</span>
+            New Intake
+          </button>
         </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Target: 160</p>
       </div>
+    </header>
 
-      <!-- Cutting Metric -->
-      <div class="kevera-card kevera-card--interactive group bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-purple-600 dark:text-purple-400">cut</span>
-          </div>
-          <div class="text-right">
-            <div class="text-xs text-green-600 dark:text-green-400 font-medium">+8%</div>
+    <!-- 2. Key Metrics Overview -->
+    <section class="pt-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
+        <!-- Metric Cards -->
+        <div class="kevera-card bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition duration-200 ease-in-out">
+          <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg"><span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl">inbox</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Intake</p>
+            <p class="text-xl font-bold text-gray-900 dark:text-white">120</p>
           </div>
         </div>
-        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Cutting</p>
-        <p class="text-3xl font-bold text-gray-900 dark:text-white mb-2">150</p>
-        <div class="kevera-progress mb-2">
-          <div class="kevera-progress__bar" style="width: 88%"></div>
+        <div class="kevera-card bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition duration-200 ease-in-out">
+          <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg"><span class="material-symbols-outlined text-purple-600 dark:text-purple-400 text-2xl">cut</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Cutting</p>
+            <p class="text-xl font-bold text-gray-900 dark:text-white">150</p>
+          </div>
         </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Target: 170</p>
+        <div class="kevera-card bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition duration-200 ease-in-out">
+          <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg"><span class="material-symbols-outlined text-green-600 dark:text-green-400 text-2xl">styler</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Sewing</p>
+            <p class="text-xl font-bold text-gray-900 dark:text-white">200</p>
+          </div>
+        </div>
+        <div class="kevera-card bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition duration-200 ease-in-out">
+          <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg"><span class="material-symbols-outlined text-orange-600 dark:text-orange-400 text-2xl">iron</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Ironing</p>
+            <p class="text-xl font-bold text-gray-900 dark:text-white">180</p>
+          </div>
+        </div>
+        <div class="kevera-card bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition duration-200 ease-in-out">
+          <div class="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-lg"><span class="material-symbols-outlined text-teal-600 dark:text-teal-400 text-2xl">package_2</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Packaging</p>
+            <p class="text-xl font-bold text-gray-900 dark:text-white">100</p>
+          </div>
+        </div>
+        <!-- Active Lots Card (Special Styling) -->
+        <div class="kevera-card bg-gray-100 dark:bg-gray-700 p-5 rounded-xl flex items-center gap-4 border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-500 transition duration-200 ease-in-out">
+          <div class="p-3 bg-gray-200 dark:bg-gray-600/50 rounded-lg"><span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-2xl">inventory_2</span></div>
+          <div class="flex-grow">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Active Lots</p>
+            <p class="text-xl font-bold text-gray-800 dark:text-white">50</p>
+          </div>
+        </div>
       </div>
-
-      <!-- Sewing Metric -->
-      <div class="kevera-card kevera-card--interactive group bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-green-100 dark:bg-green-900/20 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-green-600 dark:text-green-400">styler</span>
-          </div>
-          <div class="text-right">
-            <div class="text-xs text-green-600 dark:text-green-400 font-medium">+15%</div>
-          </div>
-        </div>
-        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Sewing</p>
-        <p class="text-3xl font-bold text-gray-900 dark:text-white mb-2">200</p>
-        <div class="kevera-progress mb-2">
-          <div class="kevera-progress__bar" style="width: 95%"></div>
-        </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Target: 210</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mt-5">
+        <!-- Example of a larger card if needed -->
+        <!-- <div class="kevera-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Production Trends</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Visualize daily output over the past week.</p>
+        </div> -->
       </div>
+    </section>
 
-      <!-- Ironing Metric -->
-      <div class="kevera-card kevera-card--interactive group bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-orange-600 dark:text-orange-400">iron</span>
-          </div>
-          <div class="text-right">
-            <div class="text-xs text-red-600 dark:text-red-400 font-medium">-3%</div>
-          </div>
-        </div>
-        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Ironing</p>
-        <p class="text-3xl font-bold text-gray-900 dark:text-white mb-2">180</p>
-        <div class="kevera-progress mb-2">
-          <div class="kevera-progress__bar" style="width: 72%"></div>
-        </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Target: 250</p>
-      </div>
-
-      <!-- Packaging Metric -->
-      <div class="kevera-card kevera-card--interactive group bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-teal-100 dark:bg-teal-900/20 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-teal-600 dark:text-teal-400">package_2</span>
-          </div>
-          <div class="text-right">
-            <div class="text-xs text-green-600 dark:text-green-400 font-medium">+6%</div>
-          </div>
-        </div>
-        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Packaging</p>
-        <p class="text-3xl font-bold text-gray-900 dark:text-white mb-2">100</p>
-        <div class="kevera-progress mb-2">
-          <div class="kevera-progress__bar" style="width: 67%"></div>
-        </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Target: 150</p>
-      </div>
-
-      <!-- Active Lots Metric -->
-      <div class="kevera-card kevera-card--interactive group border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20">
-        <div class="flex items-center justify-between mb-3">
-          <div class="p-2 bg-amber-200 dark:bg-amber-900/40 rounded-lg group-hover:scale-110 transition-transform">
-            <span class="material-symbols-outlined text-amber-700 dark:text-amber-400">trending_up</span>
-          </div>
-          <div class="kevera-badge kevera-badge--warning">
-            <span class="text-xs font-medium">Active</span>
-          </div>
-        </div>
-        <p class="text-sm font-medium text-amber-800 dark:text-amber-300 mb-1">Lots in Progress</p>
-        <p class="text-3xl font-bold text-amber-900 dark:text-amber-200 mb-2">50</p>
-        <p class="text-xs text-amber-700 dark:text-amber-400">Across all stages</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Active Lots Table -->
-  <section>
-    <div class="kevera-card bg-white dark:bg-gray-800">
-      <!-- Table Header -->
-      <div class="lg:sticky lg:top-0 lg:z-10 bg-white dark:bg-gray-800">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+    <!-- 3. Active Lots Table Section -->
+    <section class="kevera-card bg-white dark:bg-gray-800 p-0 overflow-hidden rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+      <!-- Toolbar -->
+      <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+        <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
           <div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Active Lots</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Monitor and track all lots currently in production</p>
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Active Lots</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Track, search, and filter all lots currently in production.</p>
           </div>
-          <div class="flex flex-wrap items-center gap-3">
-            <!-- Search Input -->
-            <div class="relative">
-              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
-              <input class="kevera-input pl-10 pr-4 py-2 w-64 text-sm" placeholder="Search lots..." type="text" id="lot-search" />
+          <div class="flex items-center gap-3">
+            <div class="relative flex-grow">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-md">search</span>
+              <input class="kevera-input bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white pl-10 pr-4 py-2 w-full text-sm rounded-lg" placeholder="Search lots by ID or Style..." type="text" id="lot-search" />
             </div>
-            
-            <!-- Filters Button with Popover -->
-            <div class="relative">
-              <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" id="filters-btn">
-                <span class="material-symbols-outlined mr-1">filter_list</span>
-                <span>Filters</span>
-                <span class="material-symbols-outlined ml-1">expand_more</span>
-              </button>
-              <!-- Filter Popover (hidden by default) -->
-              <div class="absolute top-full right-0 mt-2 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-20 hidden" id="filters-popover">
-                <div class="p-4 space-y-4">
-                  <div>
-                    <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Status</label>
-                    <select class="kevera-input w-full text-sm">
-                      <option>All Statuses</option>
-                      <option>Intake</option>
-                      <option>Cutting</option>
-                      <option>Sewing</option>
-                      <option>Ironing</option>
-                      <option>Packaging</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Size</label>
-                    <select class="kevera-input w-full text-sm">
-                      <option>All Sizes</option>
-                      <option>Small</option>
-                      <option>Medium</option>
-                      <option>Large</option>
-                      <option>X-Large</option>
-                    </select>
-                  </div>
-                  <div class="flex gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
-                    <button class="kevera-btn kevera-btn--primary kevera-btn--sm flex-1">Apply</button>
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">Clear</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Quick View Chips -->
-            <div class="flex items-center gap-2">
-              <button class="px-3 py-1 text-xs font-medium rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/20 dark:text-primary-300" data-view="all">All</button>
-              <button class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-view="progress">In Progress</button>
-              <button class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-view="risk">At Risk</button>
-            </div>
-            
-            <!-- Density Toggle -->
-            <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
-              <button class="px-3 py-1 text-xs font-medium rounded bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm" data-density="comfortable">Comfortable</button>
-              <button class="px-3 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" data-density="compact">Compact</button>
-            </div>
-            
-            <!-- Export Button -->
-            <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
+            <button class="kevera-btn kevera-btn--ghost text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm">
+              <span class="material-symbols-outlined mr-1">filter_list</span>
+              <span>Filters</span>
+            </button>
+            <button class="kevera-btn kevera-btn--ghost text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm">
               <span class="material-symbols-outlined mr-1">download</span>
-              Export
+              <span>Export</span>
             </button>
           </div>
         </div>
       </div>
-      
-      <!-- Table Container with Density Support -->
-      <div class="relative overflow-x-auto overflow-y-visible max-w-full" id="table-wrapper">
-        <!-- Desktop Table View -->
-        <div class="hidden lg:block">
-          <table class="kevera-table table-fixed w-full align-middle">
-            <colgroup>
-              <col class="w-28" /> <!-- LOT ID -->
-              <col class="w-[30%]" /> <!-- STYLE/TEMPLATE -->
-              <col class="w-24" /> <!-- SIZE -->
-              <col class="w-36" /> <!-- CURRENT STEP -->
-              <col class="w-64 lg:w-56" /> <!-- PROGRESS -->
-              <col class="w-44" /> <!-- LAST UPDATE -->
-              <col class="w-48" /> <!-- ASSIGNED -->
-            </colgroup>
-          <thead class="kevera-table__header bg-white dark:bg-gray-800 sticky top-0 z-10">
-            <tr>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <div class="flex items-center gap-3 minw0">
-                  <input type="checkbox" class="kevera-checkbox" id="select-all">
-                  <span class="whitespace-nowrap">Lot ID</span>
-                  <span class="material-symbols-outlined text-gray-400 cursor-pointer text-sm">unfold_more</span>
-                </div>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="ellipsis block minw0">Style/Template</span>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="whitespace-nowrap">Size</span>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="whitespace-nowrap">Current Step</span>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="ellipsis block minw0">Progress</span>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="whitespace-nowrap">Last Update</span>
-              </th>
-              <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="ellipsis block minw0">Assigned</span>
-              </th>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="kevera-table w-full text-sm text-gray-600 dark:text-gray-300">
+          <thead class="bg-gray-50 dark:bg-gray-700">
+            <tr class="text-xs text-gray-500 dark:text-gray-400 uppercase">
+              <th class="px-5 py-3 w-12"><input type="checkbox" class="kevera-checkbox bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"></th>
+              <th class="px-5 py-3 text-left font-semibold text-gray-700 dark:text-gray-200">Lot Details</th>
+              <th class="px-5 py-3 text-left font-semibold text-gray-700 dark:text-gray-200">Current Step</th>
+              <th class="px-5 py-3 text-left font-semibold text-gray-700 dark:text-gray-200">Progress</th>
+              <th class="px-5 py-3 text-left font-semibold text-gray-700 dark:text-gray-200">Assigned</th>
+              <th class="px-5 py-3 text-left font-semibold text-gray-700 dark:text-gray-200">Last Update</th>
+              <th class="px-5 py-3 text-right font-semibold text-gray-700 dark:text-gray-200">Actions</th>
             </tr>
           </thead>
-          
-          <!-- Step Group: Sewing -->
-          <tbody>
-            <tr class="bg-gray-50 dark:bg-gray-700/50 sticky top-10 z-5">
-              <td colspan="7" class="px-3 py-2 border-b border-gray-200 dark:border-gray-600 overflow-hidden">
-                <span class="ellipsis block minw0 text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">SEWING (1)</span>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="px-3 py-2 align-middle">
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-gray-700 dark:text-gray-300">
+            <!-- Sample Row 1 -->
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition duration-150 ease-in-out">
+              <td class="px-5 py-4"><input type="checkbox" class="kevera-checkbox bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"></td>
+              <td class="px-5 py-4 whitespace-nowrap">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-001">LOT-001</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">A</div>
-                  <div class="minw0 max-w-[300px] ellipsis" title="Classic Polo - Style A">Classic Polo - Style A</div>
-                </div>
-              </td>
-              <td class="px-3 py-2 text-center whitespace-nowrap">
-                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="kevera-badge kevera-badge--success whitespace-nowrap">Sewing</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
-                    <div class="h-2 bg-primary rounded-full" style="width: 50%"></div>
-                  </div>
-                  <span class="text-sm text-muted whitespace-nowrap">50/100</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 15, 2024</span>
-              </td>
-              <td class="px-3 py-2 align-middle relative">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O1</div>
-                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 1">Operator 1</span>
-                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-                      <span class="material-symbols-outlined">more_vert</span>
-                    </button>
+                  <div class="w-9 h-9 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold">A</div>
+                  <div>
+                    <div class="font-semibold text-gray-800 dark:text-white">LOT-001</div>
+                    <div class="text-xs text-gray-600 dark:text-gray-400">Classic Polo / Size M</div>
                   </div>
                 </div>
+              </td>
+              <td class="px-5 py-4 whitespace-nowrap"><span class="kevera-badge bg-green-100 text-green-700 dark:bg-green-600/20 dark:text-green-300">Sewing</span></td>
+              <td class="px-5 py-4 whitespace-nowrap">
+                <div class="flex items-center gap-3 w-36">
+                  <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1"><div class="bg-teal-500 dark:bg-teal-400 h-1 rounded-full" style="width: 50%"></div></div>
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">50%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">O1</div>
+                  <span class="text-sm text-gray-700 dark:text-gray-300">Operator 1</span>
+                </div>
+              </td>
+              <td class="p-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Jan 15, 2024</td>
+              <td class="px-5 py-4 whitespace-nowrap text-right">
+                <button class="kevera-btn kevera-btn--ghost text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
               </td>
             </tr>
-            <tr class="kevera-table__row">
-              <td class="px-3 py-2 align-middle">
+            <!-- Sample Row 2 -->
+             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition duration-150 ease-in-out">
+              <td class="px-5 py-4"><input type="checkbox" class="kevera-checkbox bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"></td>
+              <td class="px-5 py-4 whitespace-nowrap">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-002">LOT-002</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">B</div>
-                  <div class="minw0 max-w-[300px] ellipsis" title="Business Shirt - Style B">Business Shirt - Style B</div>
-                </div>
-              </td>
-              <td class="px-3 py-2 text-center whitespace-nowrap">
-                <span class="size-badge" data-size="L" aria-label="Size Large" title="Size Large">L</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="kevera-badge kevera-badge--primary whitespace-nowrap">Cutting</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
-                    <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
-                  </div>
-                  <span class="text-sm text-muted whitespace-nowrap">100/50</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 14, 2024</span>
-              </td>
-              <td class="px-3 py-2 align-middle relative">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S2</div>
-                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Supervisor 2">Supervisor 2</span>
-                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-                      <span class="material-symbols-outlined">more_vert</span>
-                    </button>
+                  <div class="w-9 h-9 bg-purple-500 rounded-md flex items-center justify-center text-white font-bold">B</div>
+                  <div>
+                    <div class="font-semibold text-gray-800 dark:text-white">LOT-002</div>
+                    <div class="text-xs text-gray-600 dark:text-gray-400">Summer Dress / Size S</div>
                   </div>
                 </div>
+              </td>
+              <td class="px-5 py-4 whitespace-nowrap"><span class="kevera-badge bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-300">Cutting</span></td>
+              <td class="px-5 py-4 whitespace-nowrap">
+                <div class="flex items-center gap-3 w-36">
+                  <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1"><div class="bg-purple-500 dark:bg-purple-400 h-1 rounded-full" style="width: 80%"></div></div>
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">80%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold">O2</div>
+                  <span class="text-sm text-gray-700 dark:text-gray-300">Operator 2</span>
+                </div>
+              </td>
+              <td class="p-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Jan 14, 2024</td>
+              <td class="px-5 py-4 whitespace-nowrap text-right">
+                <button class="kevera-btn kevera-btn--ghost text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
               </td>
             </tr>
-            <tr class="kevera-table__row">
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-003">LOT-003</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">C</div>
-                  <div class="minw0 max-w-[300px] ellipsis" title="Casual Tee - Style C">Casual Tee - Style C</div>
-                </div>
-              </td>
-              <td class="px-3 py-2 text-center whitespace-nowrap">
-                <span class="size-badge" data-size="S" aria-label="Size Small" title="Size Small">S</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="kevera-badge kevera-badge--warning whitespace-nowrap">Intake</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
-                    <div class="h-2 bg-primary rounded-full" style="width: 0%"></div>
-                  </div>
-                  <span class="text-sm text-muted whitespace-nowrap">0/150</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 13, 2024</span>
-              </td>
-              <td class="px-3 py-2 align-middle relative">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O3</div>
-                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 3">Operator 3</span>
-                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-                      <span class="material-symbols-outlined">more_vert</span>
-                    </button>
-                  </div>
-                </div>
+             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition duration-150 ease-in-out">
+              <td class="px-5 py-4"><input type="checkbox" class="kevera-checkbox bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"></td>
+              <td class="px-5 py-4 whitespace-nowrap"></td>
               </td>
             </tr>
-            <tr class="kevera-table__row">
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-004">LOT-004</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">D</div>
-                  <div class="minw0 max-w-[300px] ellipsis" title="Premium Dress - Style D">Premium Dress - Style D</div>
-                </div>
-              </td>
-              <td class="px-3 py-2 text-center whitespace-nowrap">
-                <span class="size-badge" data-size="XL" aria-label="Size Extra Large" title="Size Extra Large">XL</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="kevera-badge kevera-badge--info whitespace-nowrap">Ironing</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
-                    <div class="h-2 bg-primary rounded-full" style="width: 75%"></div>
-                  </div>
-                  <span class="text-sm text-muted whitespace-nowrap">150/200</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 12, 2024</span>
-              </td>
-              <td class="px-3 py-2 align-middle relative">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S4</div>
-                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Supervisor 4">Supervisor 4</span>
-                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-                      <span class="material-symbols-outlined">more_vert</span>
-                    </button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span class="ellipsis inline-block max-w-[120px] font-semibold text-gray-900 dark:text-white" title="LOT-005">LOT-005</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">E</div>
-                  <div class="minw0 max-w-[300px] ellipsis" title="Sport Jacket - Style E">Sport Jacket - Style E</div>
-                </div>
-              </td>
-              <td class="px-3 py-2 text-center whitespace-nowrap">
-                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="kevera-badge kevera-badge--danger whitespace-nowrap">Packaging</span>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden w-full lg:w-48">
-                    <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
-                  </div>
-                  <span class="text-sm text-muted whitespace-nowrap">200/100</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 align-middle">
-                <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Jan 11, 2024</span>
-              </td>
-              <td class="px-3 py-2 align-middle relative">
-                <div class="flex items-center gap-2 minw0">
-                  <div class="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O5</div>
-                  <span class="ellipsis inline-block align-middle max-w-[160px] text-sm" title="Operator 5">Operator 5</span>
-                  <div class="absolute right-0 top-1/2 -translate-y-1/2">
-                    <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-                      <span class="material-symbols-outlined">more_vert</span>
-                    </button>
-                  </div>
-                </div>
-              </td>
-            </tr>
+            <!-- Add more rows here -->
           </tbody>
         </table>
       </div>
-      
-      <!-- Mobile Card View -->
-      <div class="lg:hidden space-y-4">
-        <!-- Mobile Card for LOT-001 -->
-        <div class="kevera-card p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3 minw0">
-              <input type="checkbox" class="kevera-checkbox">
-              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-001">LOT-001</span>
-            </div>
-            <span class="kevera-badge kevera-badge--success whitespace-nowrap">Sewing</span>
-          </div>
-          <div class="flex items-center gap-2 mb-3 minw0">
-            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">A</div>
-            <div class="minw0">
-              <div class="ellipsis font-medium" title="Classic Polo - Style A">Classic Polo - Style A</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div class="h-2 bg-primary rounded-full" style="width: 50%"></div>
-              </div>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-              <span class="whitespace-nowrap">50/100</span>
-              <span class="whitespace-nowrap">Jan 15, 2024</span>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 minw0">
-              <div class="w-7 h-7 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O1</div>
-              <span class="text-sm ellipsis" title="Operator 1">Operator 1</span>
-            </div>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobile Card for LOT-002 -->
-        <div class="kevera-card p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3 minw0">
-              <input type="checkbox" class="kevera-checkbox">
-              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-002">LOT-002</span>
-            </div>
-            <span class="kevera-badge kevera-badge--primary whitespace-nowrap">Cutting</span>
-          </div>
-          <div class="flex items-center gap-2 mb-3 minw0">
-            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">B</div>
-            <div class="minw0">
-              <div class="ellipsis font-medium" title="Business Shirt - Style B">Business Shirt - Style B</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="size-badge" data-size="L" aria-label="Size Large" title="Size Large">L</span>
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
-              </div>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-              <span class="whitespace-nowrap">100/50</span>
-              <span class="whitespace-nowrap">Jan 14, 2024</span>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 minw0">
-              <div class="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S2</div>
-              <span class="text-sm ellipsis" title="Supervisor 2">Supervisor 2</span>
-            </div>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobile Card for LOT-003 -->
-        <div class="kevera-card p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3 minw0">
-              <input type="checkbox" class="kevera-checkbox">
-              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-003">LOT-003</span>
-            </div>
-            <span class="kevera-badge kevera-badge--warning whitespace-nowrap">Intake</span>
-          </div>
-          <div class="flex items-center gap-2 mb-3 minw0">
-            <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">C</div>
-            <div class="minw0">
-              <div class="ellipsis font-medium" title="Casual Tee - Style C">Casual Tee - Style C</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="size-badge" data-size="S" aria-label="Size Small" title="Size Small">S</span>
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div class="h-2 bg-primary rounded-full" style="width: 0%"></div>
-              </div>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-              <span class="whitespace-nowrap">0/150</span>
-              <span class="whitespace-nowrap">Jan 13, 2024</span>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 minw0">
-              <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O3</div>
-              <span class="text-sm ellipsis" title="Operator 3">Operator 3</span>
-            </div>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobile Card for LOT-004 -->
-        <div class="kevera-card p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3 minw0">
-              <input type="checkbox" class="kevera-checkbox">
-              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-004">LOT-004</span>
-            </div>
-            <span class="kevera-badge kevera-badge--info whitespace-nowrap">Ironing</span>
-          </div>
-          <div class="flex items-center gap-2 mb-3 minw0">
-            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">D</div>
-            <div class="minw0">
-              <div class="ellipsis font-medium" title="Premium Dress - Style D">Premium Dress - Style D</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="size-badge" data-size="XL" aria-label="Size Extra Large" title="Size Extra Large">XL</span>
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div class="h-2 bg-primary rounded-full" style="width: 75%"></div>
-              </div>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-              <span class="whitespace-nowrap">150/200</span>
-              <span class="whitespace-nowrap">Jan 12, 2024</span>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 minw0">
-              <div class="w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">S4</div>
-              <span class="text-sm ellipsis" title="Supervisor 4">Supervisor 4</span>
-            </div>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobile Card for LOT-005 -->
-        <div class="kevera-card p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-3 minw0">
-              <input type="checkbox" class="kevera-checkbox">
-              <span class="font-semibold text-gray-900 dark:text-white ellipsis" title="LOT-005">LOT-005</span>
-            </div>
-            <span class="kevera-badge kevera-badge--danger whitespace-nowrap">Packaging</span>
-          </div>
-          <div class="flex items-center gap-2 mb-3 minw0">
-            <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">E</div>
-            <div class="minw0">
-              <div class="ellipsis font-medium" title="Sport Jacket - Style E">Sport Jacket - Style E</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="size-badge" data-size="M" aria-label="Size Medium" title="Size Medium">M</span>
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
-                <div class="h-2 bg-primary rounded-full" style="width: 100%"></div>
-              </div>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-              <span class="whitespace-nowrap">200/100</span>
-              <span class="whitespace-nowrap">Jan 11, 2024</span>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2 minw0">
-              <div class="w-7 h-7 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">O5</div>
-              <span class="text-sm ellipsis" title="Operator 5">Operator 5</span>
-            </div>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--xs shrink-0" title="More actions">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
+
+      <!-- Pagination -->
+      <div class="px-5 py-3 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <span>Showing 1-5 of 50 lots</span>
+        <div class="inline-flex items-center gap-2">
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" disabled>Previous</button>
+          <button class="kevera-btn kevera-btn--ghost kevera-btn--xs">Next</button>
         </div>
       </div>
-    </div>
-      
-      <!-- Table Footer -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-gray-600 dark:text-gray-400">
-          Showing <span class="font-medium">1-5</span> of <span class="font-medium">50</span> active lots
-        </div>
-        <div class="flex items-center gap-2">
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
-            <span class="material-symbols-outlined">chevron_left</span>
-            Previous
-          </button>
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
-            Next
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  </div>
 </div>
-<!-- End Dashboard Page Content -->

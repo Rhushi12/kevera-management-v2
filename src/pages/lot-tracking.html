@@ -1,0 +1,160 @@
+<!-- Lot & Production Tracking Page -->
+<div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+  <!-- Header and Search -->
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark flex items-center">
+      <span class="material-symbols-outlined mr-3 text-primary">local_shipping</span>
+      Lot & Production Tracking
+    </h2>
+    <p class="mt-2 text-text-secondary-light dark:text-text-secondary-dark">Search for a Lot ID to view its complete production history and current status.</p>
+  </div>
+
+  <!-- Search Section -->
+  <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="md:col-span-2">
+        <label for="lot-id-search" class="block text-sm font-medium mb-2 text-text-secondary-light dark:text-text-secondary-dark">Search by Lot ID</label>
+        <div class="relative">
+          <input type="text" id="lot-id-search" value="L-54321-S" class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-text-primary-light dark:text-text-primary-dark pr-12 focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" placeholder="Enter Lot ID, e.g., L-12345-M">
+          <button class="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </div>
+      </div>
+      <div class="self-end">
+        <button class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+          <span class="material-symbols-outlined mr-2">track_changes</span>
+          Track Lot
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Production Timeline -->
+  <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+    <h3 class="text-xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">Production Timeline</h3>
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+      <div class="flex items-center gap-2 text-green-600">
+        <span class="material-symbols-outlined p-2 bg-green-100 dark:bg-green-900/30 rounded-full">check_circle</span>
+        <span class="font-semibold">1. Intake</span>
+      </div>
+      <div class="h-px md:h-auto w-12 md:w-auto flex-1 bg-border-light dark:bg-border-dark"></div>
+      <div class="flex items-center gap-2 text-green-600">
+        <span class="material-symbols-outlined p-2 bg-green-100 dark:bg-green-900/30 rounded-full">check_circle</span>
+        <span class="font-semibold">2. Cutting</span>
+      </div>
+      <div class="h-px md:h-auto w-12 md:w-auto flex-1 bg-border-light dark:bg-border-dark"></div>
+      <div class="flex items-center gap-2 text-primary">
+        <span class="material-symbols-outlined p-2 bg-primary/20 rounded-full">sync</span>
+        <span class="font-bold">3. Sewing</span>
+      </div>
+      <div class="h-px md:h-auto w-12 md:w-auto flex-1 bg-border-light dark:bg-border-dark"></div>
+      <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+        <span class="material-symbols-outlined p-2 bg-background-light dark:bg-background-dark rounded-full">schedule</span>
+        <span class="font-semibold">4. Ironing</span>
+      </div>
+      <div class="h-px md:h-auto w-12 md:w-auto flex-1 bg-border-light dark:bg-border-dark"></div>
+      <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+        <span class="material-symbols-outlined p-2 bg-background-light dark:bg-background-dark rounded-full">schedule</span>
+        <span class="font-semibold">5. Labeling</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lot Details & Bundles -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-1 space-y-6">
+      <!-- Lot Summary -->
+      <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+        <h3 class="text-lg font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">Lot Summary</h3>
+        <div class="space-y-3">
+          <div class="flex justify-between"><span class="font-medium text-text-secondary-light dark:text-text-secondary-dark">Lot ID:</span> <span class="font-mono text-text-primary-light dark:text-text-primary-dark">L-54321-S</span></div>
+          <div class="flex justify-between"><span class="font-medium text-text-secondary-light dark:text-text-secondary-dark">Style:</span> <span class="text-text-primary-light dark:text-text-primary-dark">Classic Tee</span></div>
+          <div class="flex justify-between"><span class="font-medium text-text-secondary-light dark:text-text-secondary-dark">Color:</span> <span class="text-text-primary-light dark:text-text-primary-dark">Navy Blue</span></div>
+          <div class="flex justify-between"><span class="font-medium text-text-secondary-light dark:text-text-secondary-dark">Total Pieces:</span> <span class="font-bold text-text-primary-light dark:text-text-primary-dark">100</span></div>
+          <div class="flex justify-between items-center"><span class="font-medium text-text-secondary-light dark:text-text-secondary-dark">Status:</span> <span class="px-2.5 py-1 text-sm font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">In Sewing</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-2">
+      <!-- Bundles Table -->
+      <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+        <h3 class="text-xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">Bundles in Lot (5)</h3>
+        <div class="overflow-x-auto rounded-lg border border-border-light dark:border-border-dark">
+          <table class="w-full divide-y divide-border-light dark:divide-border-dark">
+            <thead class="bg-background-light dark:bg-background-dark">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Bundle ID</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Pieces</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Worker</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Status</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Last Update</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border-light dark:divide-border-dark">
+              <tr class="hover:bg-surface-light-hover dark:hover:bg-surface-dark-hover">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-mono">B-001</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">20</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">Brian C.</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Completed</span></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">2h ago</td>
+              </tr>
+              <tr class="hover:bg-surface-light-hover dark:hover:bg-surface-dark-hover">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-mono">B-002</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">20</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">Brian C.</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">In Progress</span></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">15m ago</td>
+              </tr>
+              <tr class="hover:bg-surface-light-hover dark:hover:bg-surface-dark-hover">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-mono">B-003</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">20</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">Alice W.</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">Queued</span></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">3h ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lot History -->
+  <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+    <h3 class="text-xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">Lot History</h3>
+    <ul class="space-y-4">
+      <li class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center"><span class="material-symbols-outlined text-base">check</span></div>
+          <div class="flex-1 w-px bg-border-light dark:bg-border-dark my-2"></div>
+        </div>
+        <div>
+          <p class="font-semibold">Moved to Sewing <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark font-normal">- Today at 9:15 AM</span></p>
+          <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Lot L-54321-S assigned to Sewing department by manager Olivia B.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center"><span class="material-symbols-outlined text-base">check</span></div>
+          <div class="flex-1 w-px bg-border-light dark:bg-border-dark my-2"></div>
+        </div>
+        <div>
+          <p class="font-semibold">Cutting Completed <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark font-normal">- Today at 8:50 AM</span></p>
+          <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">All 5 bundles (100 pieces) finished cutting. 0 defects reported.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center"><span class="material-symbols-outlined text-base">check</span></div>
+        </div>
+        <div>
+          <p class="font-semibold">Lot Created from Intake <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark font-normal">- Yesterday at 4:20 PM</span></p>
+          <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Lot L-54321-S created with 100 pieces of 'Classic Tee - Navy Blue'.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<!-- End Lot & Production Tracking Page -->

@@ -49,7 +49,7 @@ class KeveraRouter {
     this.routeTitles.set('lots', 'Lots & Tracking');
     this.routeTitles.set('workers', 'Workers');
     this.routeTitles.set('admin', 'Admin');
-    this.routeTitles.set('audit', 'Audit Log');
+    this.routeTitles.set('lot-tracking', 'Lot & Tracking');
     this.routeTitles.set('settings', 'Settings');
 
     this.routes.set('dashboard', {
@@ -115,11 +115,11 @@ class KeveraRouter {
       navId: 'nav-admin'
     });
     
-    this.routes.set('audit', {
-      path: '#/audit',
-      file: 'src/pages/audit-log.html',
-      title: 'Audit Log',
-      navId: 'nav-audit'
+    this.routes.set('lot-tracking', {
+      path: '#/lot-tracking',
+      file: 'src/pages/lot-tracking.html',
+      title: 'Lot & Tracking',
+      navId: 'nav-lot-tracking'
     });
     
     this.routes.set('settings', {
@@ -157,11 +157,8 @@ class KeveraRouter {
       // Load page content
       const content = await this.loadPageContent(route.file);
       
-      // Extract main content from the loaded HTML (excluding layout elements)
-      const mainContent = this.extractMainContent(content);
-      
       // Update page container
-      this.pageContainer.innerHTML = mainContent;
+      this.pageContainer.innerHTML = content;
       
       // Update document title
       document.title = `Kevera - ${route.title}`;
@@ -189,30 +186,6 @@ class KeveraRouter {
       throw new Error(`Failed to load ${filePath}: ${response.status}`);
     }
     return await response.text();
-  }
-
-  extractMainContent(htmlContent) {
-    // Create a temporary DOM to parse the HTML
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-    
-    // Try to find main content area - look for main tag or content after header
-    let mainElement = doc.querySelector('main');
-    
-    if (!mainElement) {
-      // Fallback: look for content div or body content after header
-      const body = doc.querySelector('body');
-      if (body) {
-        // Remove header, aside, and script elements, keep the rest
-        const elementsToRemove = body.querySelectorAll('header, aside, script, style');
-        elementsToRemove.forEach(el => el.remove());
-        
-        // Return the remaining body content
-        return body.innerHTML;
-      }
-    }
-    
-    return mainElement ? mainElement.innerHTML : htmlContent;
   }
 
   updateNavigationState(activeNavId) {

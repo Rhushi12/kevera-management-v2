@@ -1,652 +1,143 @@
-<!-- Enhanced Workers Management Page Content -->
-<div class="p-6 space-y-8 max-w-7xl mx-auto">
-  <!-- Header Section -->
-  <section class="mb-8">
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+<!-- Workers Page Content -->
+<div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+  <!-- Page Header -->
+  <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark flex items-center">
+        <span class="material-symbols-outlined mr-3 text-primary">engineering</span>
+        Worker Management
+      </h2>
+      <p class="mt-1 text-text-secondary-light dark:text-text-secondary-dark">View, manage, and assign tasks to your workforce.</p>
+    </div>
+    <div class="flex-shrink-0">
+      <button class="w-full md:w-auto bg-primary text-white font-bold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+        <span class="material-symbols-outlined mr-2">person_add</span>
+        Add New Worker
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg shadow-sm">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div>
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
-          <span class="material-symbols-outlined mr-3 text-blue-600">group</span>
-          Worker Management
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400">Manage workers, roles, and assignments across manufacturing steps.</p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <button class="kevera-btn kevera-btn--primary kevera-btn--sm">
-          <span class="material-symbols-outlined mr-2">person_add</span>
-          Add Worker
-        </button>
-        <button class="kevera-btn kevera-btn--outline kevera-btn--sm">
-          <span class="material-symbols-outlined mr-2">download</span>
-          Export List
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Filters and Search -->
-  <section>
-    <div class="kevera-card">
-      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div class="flex items-center gap-4">
-          <div class="relative flex-1 lg:w-80">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-            <input class="kevera-input pl-10 pr-4 py-2 text-sm" placeholder="Search workers..." />
+        <label for="search-worker" class="sr-only">Search</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark">search</span>
           </div>
-        </div>
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <div class="flex gap-2 flex-wrap">
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
-              Role: All
-              <span class="material-symbols-outlined ml-1">expand_more</span>
-            </button>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
-              Step: All
-              <span class="material-symbols-outlined ml-1">expand_more</span>
-            </button>
-            <button class="kevera-btn kevera-btn--ghost kevera-btn--sm">
-              Status: All
-              <span class="material-symbols-outlined ml-1">expand_more</span>
-            </button>
-          </div>
+          <input type="text" id="search-worker" class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-2.5 pl-10 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Search by name or ID...">
         </div>
       </div>
+      <div>
+        <label for="filter-role" class="sr-only">Filter by Role</label>
+        <select id="filter-role" class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-2.5 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary">
+          <option selected>All Roles</option>
+          <option>Sewing Operator</option>
+          <option>Cutting Specialist</option>
+          <option>QA Inspector</option>
+          <option>Supervisor</option>
+        </select>
+      </div>
+      <div>
+        <label for="filter-department" class="sr-only">Filter by Department</label>
+        <select id="filter-department" class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-2.5 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary">
+          <option selected>All Departments</option>
+          <option>Cutting</option>
+          <option>Sewing</option>
+          <option>Finishing</option>
+        </select>
+      </div>
+      <div>
+        <label for="filter-status" class="sr-only">Filter by Status</label>
+        <select id="filter-status" class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg p-2.5 text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary focus:border-primary">
+          <option selected>All Statuses</option>
+          <option>Active</option>
+          <option>On Break</option>
+          <option>Inactive</option>
+        </select>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Mobile Cards (hidden on desktop) -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-4">
-    <div class="kevera-card group hover:shadow-lg transition-shadow">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="font-bold text-lg text-gray-900 dark:text-white">Liam Carter</h3>
-        <button class="text-gray-500 dark:text-gray-400 hover:text-primary">
+  <!-- Worker Profiles Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <!-- Worker Card 1 -->
+    <div class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-sm overflow-hidden group">
+      <div class="p-5">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-4">
+            <img class="w-14 h-14 rounded-full object-cover" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Isabella Rossi">
+            <div>
+              <h3 class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Isabella Rossi</h3>
+              <p class="text-sm text-primary font-medium">Sewing Operator</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+        </div>
+        <div class="mt-4 grid grid-cols-2 gap-4 text-center">
+          <div>
+            <p class="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark">98%</p>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Efficiency</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark">3</p>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Current Tasks</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-background-light dark:bg-background-dark p-3 flex justify-around">
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
+          <span class="material-symbols-outlined">person</span>
+        </button>
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
+          <span class="material-symbols-outlined">assignment</span>
+        </button>
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
           <span class="material-symbols-outlined">more_vert</span>
         </button>
       </div>
-      <p class="text-gray-600 dark:text-gray-400 font-mono text-sm mb-3">WC12345</p>
-      <div class="flex items-center gap-2 text-sm mb-3">
-        <span class="kevera-badge kevera-badge--success">Active</span>
-        <span class="kevera-badge kevera-badge--secondary">Operator</span>
-      </div>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Cutting, Sewing</p>
-      <div class="flex gap-2">
-        <button class="kevera-btn kevera-btn--ghost kevera-btn--sm flex-1">
-          <span class="material-symbols-outlined mr-1">visibility</span>
-          View
-        </button>
-        <button class="kevera-btn kevera-btn--outline kevera-btn--sm flex-1">
-          <span class="material-symbols-outlined mr-1">edit</span>
-          Edit
-        </button>
-      </div>
     </div>
 
-    <div class="kevera-card group hover:shadow-lg transition-shadow">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="font-bold text-lg text-gray-900 dark:text-white">Olivia Bennett</h3>
-        <button class="text-gray-500 dark:text-gray-400 hover:text-primary">
+    <!-- Worker Card 2 -->
+    <div class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-sm overflow-hidden group">
+      <div class="p-5">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-4">
+            <img class="w-14 h-14 rounded-full object-cover" src="https://i.pravatar.cc/150?u=a042581f4e29026704e" alt="Liam Carter">
+            <div>
+              <h3 class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Liam Carter</h3>
+              <p class="text-sm text-primary font-medium">Cutting Specialist</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">On Break</span>
+        </div>
+        <div class="mt-4 grid grid-cols-2 gap-4 text-center">
+          <div>
+            <p class="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark">95%</p>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Efficiency</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark">1</p>
+            <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Current Task</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-background-light dark:bg-background-dark p-3 flex justify-around">
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
+          <span class="material-symbols-outlined">person</span>
+        </button>
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
+          <span class="material-symbols-outlined">assignment</span>
+        </button>
+        <button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors p-2 rounded-md">
           <span class="material-symbols-outlined">more_vert</span>
         </button>
       </div>
-      <p class="text-gray-600 dark:text-gray-400 font-mono text-sm mb-3">WC67890</p>
-      <div class="flex items-center gap-2 text-sm mb-3">
-        <span class="kevera-badge kevera-badge--success">Active</span>
-        <span class="kevera-badge kevera-badge--primary">Supervisor</span>
-      </div>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Intake</p>
-      <div class="flex gap-2">
-        <button class="kevera-btn kevera-btn--ghost kevera-btn--sm flex-1">
-          <span class="material-symbols-outlined mr-1">visibility</span>
-          View
-        </button>
-        <button class="kevera-btn kevera-btn--outline kevera-btn--sm flex-1">
-          <span class="material-symbols-outlined mr-1">edit</span>
-          Edit
-        </button>
-      </div>
     </div>
-  </section>
 
-  <!-- Desktop Table -->
-  <section class="hidden lg:block">
-    <div class="kevera-card">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">All Workers</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Manage worker profiles, roles, and assignments</p>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-sm text-gray-600 dark:text-gray-400">5 workers total</span>
-        </div>
-      </div>
+    <!-- ... more worker cards ... -->
 
-      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
-        <table class="kevera-table">
-          <thead class="kevera-table__header">
-            <tr>
-              <th class="kevera-table__header-cell">
-                <div class="flex items-center gap-2">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <span>Name</span>
-                  <span class="material-symbols-outlined text-gray-400 cursor-pointer">unfold_more</span>
-                </div>
-              </th>
-              <th class="kevera-table__header-cell">Worker ID</th>
-              <th class="kevera-table__header-cell">Role</th>
-              <th class="kevera-table__header-cell">Assigned Step(s)</th>
-              <th class="kevera-table__header-cell">Status</th>
-              <th class="kevera-table__header-cell">Contact</th>
-              <th class="kevera-table__header-cell">Last Active</th>
-              <th class="kevera-table__header-cell">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="kevera-table__body">
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">LC</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Liam Carter</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">liam.carter@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC12345</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--primary">Cutting</span>
-                  <span class="kevera-badge kevera-badge--success">Sewing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-123-4567</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">OB</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Olivia Bennett</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">olivia.bennett@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC67890</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--primary">Supervisor</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--warning">Intake</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-987-6543</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">1 day ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">NT</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Noah Thompson</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">noah.thompson@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC11223</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--success">Sewing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--error">Inactive</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-246-8013</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">3 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-green-600" title="Activate">
-                    <span class="material-symbols-outlined">play_circle</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold">AH</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Ava Harper</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">ava.harper@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC33445</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--info">Ironing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-135-7924</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">1 day ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">EP</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Ethan Parker</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">ethan.parker@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC55667</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--primary">Supervisor</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--accent">Packaging</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-369-1470</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-gray-600 dark:text-gray-400">
-          Showing <span class="font-medium">1-5</span> of <span class="font-medium">5</span> workers
-        </div>
-        <div class="flex items-center gap-2">
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
-            <span class="material-symbols-outlined">chevron_left</span>
-            Previous
-          </button>
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
-            Next
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 </div>
-<!-- End Enhanced Workers Management Page Content -->                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC12345</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--primary">Cutting</span>
-                  <span class="kevera-badge kevera-badge--success">Sewing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-123-4567</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">OB</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Olivia Bennett</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">olivia.bennett@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC67890</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--primary">Supervisor</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--warning">Intake</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-987-6543</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">1 day ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">NT</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Noah Thompson</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">noah.thompson@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC11223</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--success">Sewing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--error">Inactive</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-246-8013</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">3 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs text-green-600" title="Activate">
-                    <span class="material-symbols-outlined">play_circle</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold">AH</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Ava Harper</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">ava.harper@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC33445</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--secondary">Operator</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--info">Ironing</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-135-7924</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">1 day ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr class="kevera-table__row">
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" class="kevera-checkbox">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">EP</div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">Ethan Parker</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">ethan.parker@kevera.com</p>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="font-mono text-primary">WC55667</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--primary">Supervisor</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex flex-wrap gap-1">
-                  <span class="kevera-badge kevera-badge--accent">Packaging</span>
-                </div>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="kevera-badge kevera-badge--success">Active</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm">555-369-1470</span>
-              </td>
-              <td class="kevera-table__cell">
-                <span class="text-sm text-gray-600 dark:text-gray-400">2 days ago</span>
-              </td>
-              <td class="kevera-table__cell">
-                <div class="flex items-center gap-1">
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="View Profile">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                  </button>
-                  <button class="kevera-btn kevera-btn--ghost kevera-btn--xs" title="Assign Tasks">
-                    <span class="material-symbols-outlined">assignment</span>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-gray-600 dark:text-gray-400">
-          Showing <span class="font-medium">1-5</span> of <span class="font-medium">5</span> workers
-        </div>
-        <div class="flex items-center gap-2">
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
-            <span class="material-symbols-outlined">chevron_left</span>
-            Previous
-          </button>
-          <button class="kevera-btn kevera-btn--ghost kevera-btn--sm" disabled>
-            Next
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-<!-- End Enhanced Workers Management Page Content -->
+<!-- End Workers Page Content -->
