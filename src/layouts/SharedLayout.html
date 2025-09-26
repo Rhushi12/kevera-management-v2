@@ -1,6 +1,6 @@
 <!-- Kevera Manufacturing - Enhanced Shared Layout -->
-<aside class="w-80 lg:w-80 flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 flex flex-col h-full transition-all duration-300 shadow-lg lg:shadow-none relative">
-  <!-- Logo and Brand Section -->
+<aside id="mobile-menu" class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 flex flex-col h-full transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out lg:relative lg:w-80 lg:flex-shrink-0 lg:shadow-none">
+  <!-- Logo and Brand Section (remains visible) -->
   <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 text-primary flex items-center justify-center bg-primary/10 rounded-xl">
@@ -21,7 +21,7 @@
   </div>
   
   <!-- Main Navigation -->
-  <nav class="flex-1 py-4 overflow-y-auto" id="main-navigation">
+  <nav class="flex-1 py-4 overflow-y-auto">
     <!-- Temporary fallback navigation while JavaScript loads -->
     <div class="px-4 space-y-6">
       <!-- Manufacturing Process Section -->
@@ -130,13 +130,9 @@
       </ul>
     </div>
   </nav>
-  
-  <!-- Mobile close button -->
-  <button id="mobile-close-btn" class="lg:hidden absolute top-4 right-4 p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-    <span class="material-symbols-outlined">close</span>
-  </button>
 </aside>
 
+<!-- This overlay will darken the background when the mobile menu is open -->
 <!-- Mobile Overlay -->
 <div id="mobile-overlay" class="mobile-overlay lg:hidden"></div>
 
@@ -144,7 +140,7 @@
   <!-- Mobile menu button and page title -->
   <div class="flex items-center gap-4">
     <!-- Only show mobile menu button on small screens when sidebar is hidden -->
-    <button id="header-mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">
+    <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">
       <span class="material-symbols-outlined">menu</span>
     </button>
     <div class="flex items-center gap-2 sm:gap-3">
