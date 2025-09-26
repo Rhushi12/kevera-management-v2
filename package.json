@@ -1,0 +1,21 @@
+{
+  "name": "kevera-manufacturing",
+  "version": "1.0.0",
+  "description": "Kevera Manufacturing Dashboard",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "manufacturing",
+    "dashboard",
+    "spa"
+  ],
+  "author": "Kevera",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
