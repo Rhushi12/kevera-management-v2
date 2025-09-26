@@ -1,0 +1,42 @@
+:root {
+  --sidebar-width: 280px;
+  --transition-ms: 220ms;
+  --easing: cubic-bezier(.2,.8,.2,1);
+  --backdrop-bg: rgba(15, 23, 42, .5);
+}
+
+.app-header {
+  display:flex; align-items:center; gap:.75rem; padding:.75rem 1rem;
+  border-bottom:1px solid #e5e7eb; background:#fff;
+}
+
+.icon-button { 
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+}
+.icon-button .bar {
+  display:block; width:22px; height:2px; background:#111827; margin:3px 0;
+  transition:transform var(--transition-ms) var(--easing);
+}
+
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width);
+  background:#ffffff; border-right:1px solid #e5e7eb; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  transform: translateX(-100%); transition: transform var(--transition-ms) var(--easing);
+  display:flex; flex-direction:column; padding:12px;
+  z-index: 60;
+}
+
+.sidebar.open { transform: translateX(0); }
+
+.backdrop {
+  position: fixed; inset:0; background: var(--backdrop-bg); z-index:50;
+  opacity:0; transition: opacity var(--transition-ms) var(--easing);
+}
+
+.backdrop.show { opacity:1; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .backdrop, .icon-button .bar { transition: none; }
+}
