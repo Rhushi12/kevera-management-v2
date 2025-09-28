@@ -20,6 +20,9 @@
   
   <!-- UI Components CSS -->
   <link href="src/styles/components.css" rel="stylesheet"/>
+
+  <!-- Sidebar CSS -->
+  <link rel="stylesheet" href="src/styles/sidebar.css">
   
   <!-- Tailwind CSS - Single consolidated config -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -63,20 +66,49 @@
   </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-body">
+
+  <!-- Header -->
+  <header class="app-header">
+    <button id="menuToggle"
+            class="icon-button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="appSidebar">
+      <!-- simple hamburger -->
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <h1 class="app-title">Kevera</h1>
+  </header>
+
+  <!-- Sidebar drawer -->
+  <aside id="appSidebar" class="sidebar" role="dialog" aria-modal="true" aria-label="Primary navigation" hidden>
+    <div class="sidebar-header">
+      <button id="sidebarClose" class="icon-button" aria-label="Close navigation">✕</button>
+    </div>
+    <nav class="sidebar-nav" role="navigation">
+      <ul class="menu">
+        <li><a class="menu-item" href="#/dashboard"><span class="mi">home</span>Dashboard</a></li>
+        <li><a class="menu-item" href="#/intake"><span class="mi">inbox</span>Intake (Step 1)</a></li>
+        <li><a class="menu-item" href="#/cutting"><span class="mi">content_cut</span>Cutting & Bundling (Step 2)</a></li>
+        <li><a class="menu-item" href="#/sewing"><span class="mi">straighten</span>Sewing (Step 3)</a></li>
+        <li><a class="menu-item" href="#/ironing"><span class="mi">iron</span>Ironing (Step 4)</a></li>
+        <li><a class="menu-item" href="#/packaging"><span class="mi">inventory_2</span>Labeling & Packaging (Step 5)</a></li>
+        <li><a class="menu-item" href="#/lots"><span class="mi">view_list</span>Lot & Tracking</a></li>
+        <li><a class="menu-item" href="#/workers"><span class="mi">groups</span>Workers</a></li>
+        <li><a class="menu-item" href="#/admin"><span class="mi">admin_panel_settings</span>Admin</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Backdrop -->
+  <div id="sidebarBackdrop" class="backdrop" hidden></div>
+
+
   <!-- Main application container with enhanced layout -->
   <div class="flex h-screen w-full bg-gradient-to-br from-background-light to-gray-50 dark:from-background-dark dark:to-gray-900 transition-colors duration-300">
     
-    <!-- Sidebar - will be populated by SharedLayout.html -->
-    <div id="sidebar-container" class="relative z-40">
-      <!-- Sidebar content will be loaded here -->
-    </div>
-    
     <!-- Main content area with enhanced styling -->
     <main id="main-content" class="flex-1 flex flex-col min-w-0 relative">
-      <!-- Header - will be populated by SharedLayout.html -->
-      <div id="header-container" class="sticky top-0 z-30 backdrop-blur-sm bg-white/95 dark:bg-gray-900/95 border-b border-gray-200/50 dark:border-gray-700/50">
-        <!-- Header content will be loaded here -->
-      </div>
       
       <!-- Page content container with enhanced scrolling -->
       <div class="flex-1 overflow-y-auto custom-scrollbar" id="page-root">
@@ -159,9 +191,6 @@
     // Initialize layout loading
     async function initializeApp() {
       try {
-        // Load shared layout components
-        await loadSharedLayout();
-        
         // Initialize router (this will be loaded next)
         // The router will handle initial route navigation
         console.log('Kevera Manufacturing app initialized successfully');
@@ -169,34 +198,6 @@
       } catch (error) {
         console.error('Failed to initialize app:', error);
         showError('Failed to load application. Please refresh the page.');
-      }
-    }
-    
-    async function loadSharedLayout() {
-      try {
-        // Load sidebar
-        const sidebarResponse = await fetch('src/layouts/SharedLayout.html');
-        if (!sidebarResponse.ok) throw new Error('Failed to load sidebar');
-        const sidebarHTML = await sidebarResponse.text();
-        
-        // Parse and extract sidebar and header
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(sidebarHTML, 'text/html');
-        
-        const sidebar = doc.querySelector('aside');
-        const header = doc.querySelector('header');
-        
-        if (sidebar) {
-          document.getElementById('sidebar-container').appendChild(sidebar);
-        }
-        
-        if (header) {
-          document.getElementById('header-container').appendChild(header);
-        }
-        
-      } catch (error) {
-        console.error('Error loading shared layout:', error);
-        throw error;
       }
     }
     
@@ -225,13 +226,10 @@
     }
   </script>
   
-  <!-- Load SharedLayout JavaScript -->
-  <script src="src/layouts/SharedLayout.js"></script>
-  
   <!-- Load Router JavaScript -->
   <script src="src/router.js"></script>
 
   <!-- Load Sidebar JavaScript -->
-  <script src="src/sidebar.js"></script>
+  <script src="src/sidebar.js" defer></script>
 </body>
 </html>

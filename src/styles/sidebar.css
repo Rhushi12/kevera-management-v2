@@ -1,42 +1,42 @@
-:root {
-  --sidebar-width: 280px;
-  --transition-ms: 220ms;
-  --easing: cubic-bezier(.2,.8,.2,1);
-  --backdrop-bg: rgba(15, 23, 42, .5);
-}
-
-.app-header {
-  display:flex; align-items:center; gap:.75rem; padding:.75rem 1rem;
-  border-bottom:1px solid #e5e7eb; background:#fff;
-}
-
-.icon-button { 
-  display:inline-flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border:0; background:transparent; cursor:pointer;
-}
-.icon-button .bar {
-  display:block; width:22px; height:2px; background:#111827; margin:3px 0;
-  transition:transform var(--transition-ms) var(--easing);
-}
-
+/* Drawer: fixed to left, slide horizontally */
 .sidebar {
-  position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width);
-  background:#ffffff; border-right:1px solid #e5e7eb; box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  transform: translateX(-100%); transition: transform var(--transition-ms) var(--easing);
-  display:flex; flex-direction:column; padding:12px;
+  position: fixed;           /* anchor to viewport */ 
+  top: 0; left: 0; bottom: 0;
+  width: 300px;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  transform: translateX(-100%);            /* off-canvas start */
+  transition: transform .22s cubic-bezier(.2,.8,.2,1);  /* animate X only */
   z-index: 60;
 }
+.sidebar.open { transform: translateX(0); } /* slide in from left */
 
-.sidebar.open { transform: translateX(0); }
-
+/* Backdrop fade */
 .backdrop {
-  position: fixed; inset:0; background: var(--backdrop-bg); z-index:50;
-  opacity:0; transition: opacity var(--transition-ms) var(--easing);
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(15,23,42,.5);
+  opacity: 0; transition: opacity .22s ease;
 }
+.backdrop.show { opacity: 1; }
 
-.backdrop.show { opacity:1; }
-
-/* Reduce motion */
+/* Optional: reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .sidebar, .backdrop, .icon-button .bar { transition: none; }
+  .sidebar, .backdrop { transition: none; }
 }
+
+/* Header hamburger */
+.icon-button { position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+.icon-button .bar { position:absolute; left:9px; right:9px; height:2px; background:#0f172a; transition:transform .22s cubic-bezier(.2,.8,.2,1), opacity .22s; }
+.icon-button .bar:nth-child(1){ top:13px; }
+.icon-button .bar:nth-child(2){ top:19px; }
+.icon-button .bar:nth-child(3){ top:25px; }
+.icon-button[aria-expanded="true"] .bar:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.icon-button[aria-expanded="true"] .bar:nth-child(2){ opacity:0; }
+.icon-button[aria-expanded="true"] .bar:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* Drawer look & feel (Material-like) */
+.menu { list-style:none; margin:4px 0 0; padding:8px; }
+.menu-item { display:flex; align-items:center; gap:12px; padding:10px 12px; margin:2px 0; border-radius:8px; color:#0f172a; text-decoration:none; }
+.menu-item:hover { background:#f1f5f9; }
+.menu-item:focus-visible { outline:2px solid #3b82f6; outline-offset:2px; }
+.mi { font-family: 'Material Symbols Outlined', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20; font-size:18px; line-height:0; color:#334155; }
