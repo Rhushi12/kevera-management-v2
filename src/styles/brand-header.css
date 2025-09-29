@@ -1,0 +1,9 @@
+.plain-header{
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.plain-shell{ display:flex; align-items:center; gap:10px; min-height:60px; padding:8px 14px; }
+
+.brand-wordmark{ height:28px; width:auto; object-fit:contain; }

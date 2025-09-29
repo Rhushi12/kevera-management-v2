@@ -96,7 +96,7 @@ class KeveraRouter {
     
     this.routes.set('lots', {
       path: '#/lots',
-      file: 'src/pages/dashboard.html', // Using dashboard as placeholder for now
+      file: 'src/pages/lot-tracking.html',
       title: 'Lots & Tracking',
       navId: 'nav-lots'
     });
@@ -124,7 +124,7 @@ class KeveraRouter {
     
     this.routes.set('settings', {
       path: '#/settings',
-      file: 'src/pages/dashboard.html', // Using dashboard as placeholder for now
+      file: 'src/pages/settings.html',
       title: 'Settings',
       navId: 'nav-settings'
     });

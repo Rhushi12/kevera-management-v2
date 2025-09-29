@@ -23,6 +23,9 @@
 
   <!-- Sidebar CSS -->
   <link rel="stylesheet" href="src/styles/sidebar.css">
+
+  <!-- Brand Header CSS -->
+  <link rel="stylesheet" href="src/styles/brand-header.css">
   
   <!-- Tailwind CSS - Single consolidated config -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -67,17 +70,13 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-body">
 
-  <!-- Header -->
-  <header class="app-header">
-    <button id="menuToggle"
-            class="icon-button"
-            aria-label="Open navigation"
-            aria-expanded="false"
-            aria-controls="appSidebar">
-      <!-- simple hamburger -->
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-    <h1 class="app-title">Kevera</h1>
+  <header class="plain-header" role="banner">
+    <div class="plain-shell">
+      <button id="menuToggle" class="icon-button" aria-label="Open navigation" aria-expanded="false" aria-controls="appSidebar">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <img src="/assets/kevara-wordmark.png" alt="Kevara" class="brand-wordmark">
+    </div>
   </header>
 
   <!-- Sidebar drawer -->
@@ -163,6 +162,27 @@
   
   <!-- JavaScript files -->
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header.plain-header, header[role="banner"], header');
+      if (!header) return;
+      const shell = header.querySelector('.plain-shell') || header;
+      const btn = shell.querySelector('#menuToggle') || header.querySelector('#menuToggle');
+
+      // Remove everything except the hamburger
+      Array.from(shell.children).forEach(n => { if (!btn || n !== btn) n.remove(); });
+
+      // Ensure hamburger is present then append the logo
+      if (btn && btn.parentElement !== shell) shell.appendChild(btn);
+      const existingLogo = shell.querySelector('.brand-wordmark');
+      if (!existingLogo) {
+        const img = document.createElement('img');
+        img.src = '/assets/kevara-wordmark.png';
+        img.alt = 'Kevara';
+        img.className = 'brand-wordmark';
+        shell.appendChild(img);
+      }
+    });
+
     // Global error handler
     window.addEventListener('error', (event) => {
       console.error('Global error:', event.error);
