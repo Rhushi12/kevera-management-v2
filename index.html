@@ -26,6 +26,9 @@
 
   <!-- Brand Header CSS -->
   <link rel="stylesheet" href="src/styles/brand-header.css">
+
+  <!-- Hamburger CSS -->
+  <link rel="stylesheet" href="src/styles/hamburger.css">
   
   <!-- Tailwind CSS - Single consolidated config -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -70,32 +73,54 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-body">
 
+  <!-- Header -->
   <header class="plain-header" role="banner">
     <div class="plain-shell">
-      <button id="menuToggle" class="icon-button" aria-label="Open navigation" aria-expanded="false" aria-controls="appSidebar">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <img src="/assets/kevara-wordmark.png" alt="Kevara" class="brand-wordmark">
+      <div class="brand-left">
+        <img src="/assets/kevara-wordmark.png" alt="Kevara" class="brand-wordmark">
+      </div>
+      <div id="menuToggle" class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="appSidebar">
+        <input class="checkbox" type="checkbox" />
+        <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
+          <path
+            class="lineTop line"
+            stroke-linecap="round"
+            stroke-width="4"
+            stroke="black"
+            d="M6 11L44 11"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="4"
+            stroke="black"
+            d="M6 24H43"
+            class="lineMid line"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="4"
+            stroke="black"
+            d="M6 37H43"
+            class="lineBottom line"
+          ></path>
+        </svg>
+      </div>
     </div>
   </header>
 
-  <!-- Sidebar drawer -->
-  <aside id="appSidebar" class="sidebar" role="dialog" aria-modal="true" aria-label="Primary navigation" hidden>
-    <div class="sidebar-header">
-      <button id="sidebarClose" class="icon-button" aria-label="Close navigation">✕</button>
-    </div>
+  <!-- Off-canvas sidebar -->
+  <aside id="appSidebar" class="sidebar" role="dialog" aria-modal="true"
+        aria-label="Primary navigation" hidden>
     <nav class="sidebar-nav" role="navigation">
-      <ul class="menu">
-        <li><a class="menu-item" href="#/dashboard"><span class="mi">home</span>Dashboard</a></li>
-        <li><a class="menu-item" href="#/intake"><span class="mi">inbox</span>Intake (Step 1)</a></li>
-        <li><a class="menu-item" href="#/cutting"><span class="mi">content_cut</span>Cutting & Bundling (Step 2)</a></li>
-        <li><a class="menu-item" href="#/sewing"><span class="mi">straighten</span>Sewing (Step 3)</a></li>
-        <li><a class="menu-item" href="#/ironing"><span class="mi">iron</span>Ironing (Step 4)</a></li>
-        <li><a class="menu-item" href="#/packaging"><span class="mi">inventory_2</span>Labeling & Packaging (Step 5)</a></li>
-        <li><a class="menu-item" href="#/lots"><span class="mi">view_list</span>Lot & Tracking</a></li>
-        <li><a class="menu-item" href="#/workers"><span class="mi">groups</span>Workers</a></li>
-        <li><a class="menu-item" href="#/admin"><span class="mi">admin_panel_settings</span>Admin</a></li>
-      </ul>
+      <a class="nav-item" href="#/dashboard">Dashboard</a>
+      <a class="nav-item" href="#/intake">Intake (Step 1)</a>
+      <a class="nav-item" href="#/cutting">Cutting & Bundling (Step 2)</a>
+      <a class="nav-item" href="#/sewing">Sewing (Step 3)</a>
+      <a class="nav-item" href="#/ironing">Ironing (Step 4)</a>
+      <a class="nav-item" href="#/packaging">Labeling & Packaging (Step 5)</a>
+      <a class="nav-item" href="#/lots">Lot & Tracking</a>
+      <a class="nav-item" href="#/workers">Workers</a>
+      <a class="nav-item" href="#/admin">Admin</a>
     </nav>
   </aside>
 
@@ -163,23 +188,15 @@
   <!-- JavaScript files -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('header.plain-header, header[role="banner"], header');
+      const header = document.querySelector('header.plain-header, header[role="banner"]');
       if (!header) return;
       const shell = header.querySelector('.plain-shell') || header;
-      const btn = shell.querySelector('#menuToggle') || header.querySelector('#menuToggle');
-
-      // Remove everything except the hamburger
-      Array.from(shell.children).forEach(n => { if (!btn || n !== btn) n.remove(); });
-
-      // Ensure hamburger is present then append the logo
-      if (btn && btn.parentElement !== shell) shell.appendChild(btn);
-      const existingLogo = shell.querySelector('.brand-wordmark');
-      if (!existingLogo) {
+      const btn = document.getElementById('menuToggle');
+      if (btn && btn.parentElement !== shell) shell.insertBefore(btn, shell.firstChild);
+      if (!shell.querySelector('.brand-wordmark')) {
         const img = document.createElement('img');
-        img.src = '/assets/kevara-wordmark.png';
-        img.alt = 'Kevara';
-        img.className = 'brand-wordmark';
-        shell.appendChild(img);
+        img.src = '/assets/kevara-wordmark.png'; img.alt = 'Kevara'; img.className = 'brand-wordmark';
+        shell.insertBefore(img, btn ? btn.nextSibling : shell.firstChild);
       }
     });
 

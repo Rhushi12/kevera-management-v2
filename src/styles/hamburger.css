@@ -1,0 +1,47 @@
+
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger .line {
+  transition: y 300ms ease-in-out 300ms, rotate 300ms ease-in-out, opacity 0ms 300ms;
+  transform-origin: center;
+}
+
+.hamburger .lineTop {
+  y: 11;
+}
+
+.hamburger .lineMid {
+  y: 24;
+}
+
+.hamburger .lineBottom {
+  y: 37;
+}
+
+.hamburger input:checked ~ svg .line {
+  transition: y 300ms ease-in-out, rotate 300ms ease-in-out 300ms, opacity 0ms 300ms;
+}
+
+.hamburger input:checked ~ svg .lineTop {
+  y: 25;
+  rotate: 45deg;
+}
+
+.hamburger input:checked ~ svg .lineMid {
+  opacity: 0;
+}
+
+.hamburger input:checked ~ svg .lineBottom {
+  y: 25;
+  rotate: -45deg;
+}
+
+.checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
